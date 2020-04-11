@@ -122,8 +122,23 @@
             </div>
         </li>
         @endcan
-
-
+          
+ <!--Solicitud 6 creditos-->
+        <hr class="sidebar-divider my-0">
+        @can('creditos')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#creditos" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-list"></i>
+                <span>Solicitud 6 creditos</span>
+            </a>
+            <div id="creditos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">6 creditos</h6>
+                    <a class="collapse-item" href="{{url('lista_creditos')}}">6creditos</a>
+             </div>
+            </div>
+        </li>
+        @endcan
 
 
 

@@ -51,5 +51,9 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('user');
         });
 
+        Gate::define('creditos', function($user){
+            return $user->hasAnyRoles(['admin', 'coordinador','user']);
+        });
+
     }
 }

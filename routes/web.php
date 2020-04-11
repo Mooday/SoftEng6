@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\Solicitud6creditosController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -45,3 +47,11 @@ Route::get('lista_empresas', 'RegistroController@lista_empresas')->middleware('c
 Route::get('asesor_emp/{id}', 'RegistroController@registro_empresa')->middleware('can:manage-users');//Coordinador elige el registro de la solicitud de empresa
 Route::post('empresapdf', 'RegistroController@carta_empresa')->middleware('can:manage-users');//Coordinador actualiza y muestra PDF de solicitud de asesor de empresa
 Route::get('borrar_nota_empresa/{id}', 'RegistroController@borrar_nota_empresa')->middleware('can:manage-users');//Coordinador borra solicitud de asesor de empresa
+
+Route::get('lista_creditos','Solicitud6creditosController@index')->name('creditos/lista_creditos');
+    
+Route::post('lista_creditos/guardar','Solicitud6creditosController@store')->name('store');
+
+Route::get('lista_creditos/editar/{id}','Solicitud6creditosController@edit')->name('editar');
+
+Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->name('update');
