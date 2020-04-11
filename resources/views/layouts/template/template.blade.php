@@ -20,8 +20,11 @@
 
     <!-- DataTables links -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 
 </head>
 
@@ -47,11 +50,11 @@
         <!-- Nav Item - Pages Collapse Menu -->
         @can('manage-users')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-users-cog"></i>
                 <span>Gestión de Usuarios</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Usuarios</h6>
                     <a class="collapse-item" href="{{route('admin.users.index')}}">Usuarios y Permisos</a>
@@ -59,6 +62,26 @@
             </div>
         </li>
         @endcan
+
+        @can('manage-users')
+
+            <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+
+                <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-bullhorn"></i>
+                    <span>Anuncios</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Anuncios</h6>
+                        <a class="collapse-item" href="{{route('admin.anuncio.index')}}">Lista de Anuncios</a>
+                    </div>
+                </div>
+            </li>
+    @endcan
 
 
 
@@ -255,6 +278,7 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -265,7 +289,7 @@
 <script src="/js/sb-admin-2.min.js"></script>
 
 <!-- DataTable JavaScript -->
-<script>$(document).ready( function () {
+<script type="text/javascript">$(document).ready( function () {
         $('#dataTable').DataTable();
     } );
 </script>
