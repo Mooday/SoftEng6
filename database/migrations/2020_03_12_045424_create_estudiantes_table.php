@@ -21,7 +21,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('apellido')->nullable();
             $table->string('cedula')->unique()->nullable();
             $table->integer('id_carrera')->nullable();
-            $table->foreign('id_carrera')->references('id')->on('carreras');
+            /*$table->foreign('id_carrera')->references('id')->on('carreras');*/
             $table->timestamps();
         });
     }

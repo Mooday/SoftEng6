@@ -92,7 +92,7 @@
         @can('manage-users')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users-cog"></i>
+                <i class="fas fa-file-alt"></i>
                 <span>Gestión de notas</span>
             </a>
             <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

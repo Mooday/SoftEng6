@@ -22,7 +22,7 @@ class CreateEmpresasTable extends Migration
             $table->string('apellido_asesor');
             $table->string('nombre_empresa');
             $table->string('codigo')->nullable();
-            $table->foreign('id_estudiante')->references('id')->on('estudiantes');
+            /*$table->foreign('id_estudiante')->references('id')->on('estudiantes');*/
             $table->timestamps();
         });
     }
