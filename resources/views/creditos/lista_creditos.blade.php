@@ -34,6 +34,7 @@
    </div>
   
 </div>
+<div>
 <table class="table">
    <tr>
       
@@ -44,9 +45,10 @@
        <th>email</th>
        <th>estatus</th>
        @can('manage-users')
-       <th>acciones</th>
+       <th>cambios</th>
        @endcan
    </tr>
+
    @foreach ($ver as $item)
                    <tr>
                    
@@ -56,12 +58,14 @@
                    <td>{{$item->telefono}}</td>
                    <td>{{$item->email}}</td>
                    <td>{{$item->estatus}}</td>
+                   @can('manage-users')
                    <td>
                      <a href="{{route('editar', $item->id)}}" class="btn btn-warning">editar</a>
-                     
+                    @endcan
                      </td>
                    </tr>    
                @endforeach
-
+                  </table>
+    </div>
 
 @endsection

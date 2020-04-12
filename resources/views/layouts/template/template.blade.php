@@ -134,7 +134,7 @@
             <div id="creditos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">6 creditos</h6>
-                    <a class="collapse-item" href="{{url('lista_creditos')}}">6creditos</a>
+                    <a class="collapse-item" href="{{url('lista_creditos')}}">materias de 6 creditos</a>
              </div>
             </div>
         </li>

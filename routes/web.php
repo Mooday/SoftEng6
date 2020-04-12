@@ -48,10 +48,7 @@ Route::get('asesor_emp/{id}', 'RegistroController@registro_empresa')->middleware
 Route::post('empresapdf', 'RegistroController@carta_empresa')->middleware('can:manage-users');//Coordinador actualiza y muestra PDF de solicitud de asesor de empresa
 Route::get('borrar_nota_empresa/{id}', 'RegistroController@borrar_nota_empresa')->middleware('can:manage-users');//Coordinador borra solicitud de asesor de empresa
 
-Route::get('lista_creditos','Solicitud6creditosController@index')->name('creditos/lista_creditos');
-    
-Route::post('lista_creditos/guardar','Solicitud6creditosController@store')->name('store');
-
-Route::get('lista_creditos/editar/{id}','Solicitud6creditosController@edit')->name('editar');
-
-Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->name('update');
+Route::get('lista_creditos','Solicitud6creditosController@index')->name('creditos/lista_creditos');//muestra la pagina de solicitud de 6 creditos   
+Route::post('lista_creditos/guardar','Solicitud6creditosController@store')->name('store');//gurdar solicitud de 6 creditos
+Route::get('lista_creditos/editar/{id}','Solicitud6creditosController@edit')->name('editar');//muestra la vista editar solicitud 6 creditos
+Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->name('update');//actualizar solicitud 6 creditos
