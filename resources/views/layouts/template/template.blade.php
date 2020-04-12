@@ -51,13 +51,10 @@
         <!-- Nav Item - Pages Collapse Menu -->
         @can('manage-users')
         <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users-cog"></i>      
-=======
+
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-users-cog"></i>
->>>>>>> master
+
                 <span>Gestión de Usuarios</span>
             </a>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
@@ -67,15 +64,18 @@
                 </div>
             </div>
         </li>
-<<<<<<< HEAD
         @endcan
+
+    <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
         @can('manage-users')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users-cog"></i>      
-                <span>Gestión de Notas</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_anteproyecto" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-book"></i>
+                <span>Gestión de Anteproyecto</span>
             </a>
-            <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapse_anteproyecto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Registro</h6>
                     <a class="collapse-item" href="{{url('anteproyectosregistrados')}}">Anteproyecto Registrado</a>
@@ -84,13 +84,14 @@
             </div>
         </li>
         @endcan
+
         @can('is-user')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_registro" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-users-cog"></i>      
                 <span>Gestión de Registro</span>
             </a>
-            <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapse_registro" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Registro</h6>
                     <a class="collapse-item" href="{{url('registroestudiante')}}">Registro de Anteproyecto</a>
@@ -98,8 +99,6 @@
             </div>
         </li>
         @endcan
-=======
->>>>>>> master
 
         @can('manage-users')
 
@@ -121,17 +120,19 @@
             </li>
     @endcan
 
+    <!-- Divider -->
+        <hr class="sidebar-divider my-0">
 
 
- 
-        @endcan
+
+
 
         <!--Gestión de notas - coordinador - Admin-->
         @can('manage-users')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-file-alt"></i>
-                <span>Gestión de notas</span>
+                <span>Gestión de Notas</span>
             </a>
             <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -148,8 +149,8 @@
         @can('is-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users-cog"></i>
-                <span>Solicitud de notas</span>
+                <i class="fas fa-file-alt"></i>
+                <span>Solicitud de Notas</span>
             </a>
             <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">

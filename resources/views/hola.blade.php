@@ -24,9 +24,9 @@
                 <p>
                 <label for="Tipo_Anteproyecto">Tipo de Anteproyecto</label><br/>
                 <select name="Tipo_Anteproyecto" id="Tipo_Anteproyecto">
-                @foreach($tipoantess as $tipoantes)
-                <option value="{{$tipoantes->NombreTipo}}" name="Tipo_Anteproyecto">{{$tipoantes->NombreTipo}}</option>
-                @endforeach
+                    <option value="Tesis" name="Tipo_Anteproyecto">Tesis</option>
+                    <option value="Teorico Practico" name="Tipo_Anteproyecto">Teorico Practico</option>
+                    <option value="Practica Profesional" name="Tipo_Anteproyecto">Practica Profesional</option>
                 </select>   
                 </p>
                 <p>
@@ -79,13 +79,7 @@
                 <label for="cedula">Nombre de la Empresa donde realizará la Practica Profesional</label><br/>
                 <input type="text" name="Nombre_empresa"/><br/>
                 </p>
-                <p>
-                <label for="estado">Selecione el Estado</label><br/>
-                <select name="Estado" id="estado"><br/>
-                @foreach($estadoss as $estado)
-                <br/><option value="{{$estado->Nombre_estado}}" name=Estado>{{$estado->Nombre_estado}}</option><br/>
-                @endforeach
-                </p>
+
                 <p>
                 <br/><input type="submit" value="Registrar Anteproyecto"><br/>
                 </p>

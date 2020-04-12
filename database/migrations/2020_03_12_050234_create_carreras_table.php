@@ -11,11 +11,10 @@ class CreateCarrerasTable extends Migration
      *
      * @return void
      */
-<<<<<<< HEAD
-=======
+
 
     //Tabla de carreras
->>>>>>> master
+
     public function up()
     {
         Schema::create('carreras', function (Blueprint $table) {

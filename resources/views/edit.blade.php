@@ -19,9 +19,11 @@
                 <p>
                 <label for="estado">Selecione el Estado</label><br/>
                 <select name="Estado" id="estado"><br/>
-                @foreach($estadosss as $estado)
-                <br/><option value="{{$estado->Nombre_estado}}" name=Estado>{{$estado->Nombre_estado}}</option><br/>
-                @endforeach
+                    <br/><option value="En Revision" name=Estado>En Revision</option><br/>
+                    <br/><option value="Enviado" name=Estado>Enviado</option><br/>
+                    <br/><option value="Aprobado" name=Estado>Aprobado</option><br/>
+                    <br/><option value="Denegado" name=Estado>Denegado</option><br/>
+                    <br/><option value="Finalizado" name=Estado>Finalizado</option><br/>
                 </p>
                 <p>
                 <br/><input type="submit" value="Guardar Cambios"><br/>

@@ -79,9 +79,8 @@ class EjemploController extends Controller
         //
         $datosAnteproyecto=request()->except(['_token','_method']);
         anteproyecto::where('id','=',$id)->update($datosAnteproyecto);
-        $dato=anteproyecto::findOrFail($id);
-        $estadosss=estado::all();
-        return view('edit', compact('dato','estadosss'));
+
+        return redirect('anteproyectosregistrados');
 
 
     }

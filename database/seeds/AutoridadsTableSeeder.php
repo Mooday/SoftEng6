@@ -10,11 +10,10 @@ class AutoridadsTableSeeder extends Seeder
      *
      * @return void
      */
-<<<<<<< HEAD
-=======
+
 
     //Seed para insertar las autoridades(Testing)
->>>>>>> master
+
     public function run()
     {
         Autoridad::truncate();

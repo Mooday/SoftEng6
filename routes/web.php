@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
+
 //Route::get('registroestudiante', function(){
     //return view ('hola');
 //});
@@ -29,8 +29,7 @@ Route::resource('registroestudiante','AnteproyectoController');
 
 Route::resource('anteproyectosregistrados', 'EjemploController');
 
-=======
->>>>>>> master
+
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function (){
 
     Route::resource('/users', 'UsersController', ['except'=>['create', 'store']]);

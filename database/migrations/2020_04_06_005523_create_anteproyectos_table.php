@@ -25,7 +25,7 @@ class CreateAnteproyectosTable extends Migration
             $table->string('Asesor_empresa')->nullable();
             $table->string('Nombre_empresa')->nullable();
             $table->string('Carrera')->required();
-            $table->string('Estado')->required();
+            $table->string('Estado')->default('En Revision');
             $table->timestamps();
         });
     }
