@@ -19,6 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Route::get('registroestudiante', function(){
+    //return view ('hola');
+//});
+Route::get('/imprimir-pdf','PdfController@imprimir')->name('imprimir');
+
+Route::resource('registroestudiante','AnteproyectoController'); 
+
+Route::resource('anteproyectosregistrados', 'EjemploController');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function (){
     Route::resource('/users', 'UsersController', ['except'=>['create', 'store']]);

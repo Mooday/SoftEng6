@@ -48,13 +48,42 @@
         @can('manage-users')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users-cog"></i>
+                <i class="fas fa-fw fa-users-cog"></i>      
                 <span>Gestión de Usuarios</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Usuarios</h6>
                     <a class="collapse-item" href="{{route('admin.users.index')}}">Usuarios y Permisos</a>
+                </div>
+            </div>
+        </li>
+        @endcan
+        @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-users-cog"></i>      
+                <span>Gestión de Notas</span>
+            </a>
+            <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Registro</h6>
+                    <a class="collapse-item" href="{{url('anteproyectosregistrados')}}">Anteproyecto Registrado</a>
+            
+                </div>
+            </div>
+        </li>
+        @endcan
+        @can('is-user')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-users-cog"></i>      
+                <span>Gestión de Registro</span>
+            </a>
+            <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Registro</h6>
+                    <a class="collapse-item" href="{{url('registroestudiante')}}">Registro de Anteproyecto</a>
                 </div>
             </div>
         </li>
