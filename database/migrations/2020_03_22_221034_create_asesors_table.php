@@ -4,24 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutoridadsTable extends Migration
+class CreateAsesorsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
-
-    //Tabla de autoridades
-
     public function up()
     {
-        Schema::create('autoridads', function (Blueprint $table) {
+        Schema::create('asesors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('cargo');
+            $table->string('Nombre_Asesor');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ class CreateAutoridadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autoridads');
+        Schema::dropIfExists('asesors');
     }
 }

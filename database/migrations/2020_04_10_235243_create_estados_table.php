@@ -4,24 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutoridadsTable extends Migration
+class CreateEstadosTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
-
-    //Tabla de autoridades
-
     public function up()
     {
-        Schema::create('autoridads', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('cargo');
+            $table->string('Nombre_estado');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ class CreateAutoridadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autoridads');
+        Schema::dropIfExists('estados');
     }
 }

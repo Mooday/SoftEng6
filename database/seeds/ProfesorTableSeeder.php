@@ -11,7 +11,9 @@ class ProfesorTableSeeder extends Seeder
      * @return void
      */
 
+
     //Seed para insertar profesores(Testing)
+
     public function run()
     {
         Profesor::truncate();

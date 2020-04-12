@@ -13,6 +13,7 @@ class CreateProfesorsTable extends Migration
      */
 
     //Tabla de profesores
+
     public function up()
     {
         Schema::create('profesors', function (Blueprint $table) {
