@@ -17,11 +17,15 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+   
 
     <!-- DataTables links -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 
 </head>
 
@@ -47,17 +51,23 @@
         <!-- Nav Item - Pages Collapse Menu -->
         @can('manage-users')
         <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-users-cog"></i>      
+=======
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-users-cog"></i>
+>>>>>>> master
                 <span>Gestión de Usuarios</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Usuarios</h6>
                     <a class="collapse-item" href="{{route('admin.users.index')}}">Usuarios y Permisos</a>
                 </div>
             </div>
         </li>
+<<<<<<< HEAD
         @endcan
         @can('manage-users')
         <li class="nav-item">
@@ -88,11 +98,68 @@
             </div>
         </li>
         @endcan
+=======
+>>>>>>> master
+
+        @can('manage-users')
+
+            <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+
+                <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-bullhorn"></i>
+                    <span>Anuncios</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Anuncios</h6>
+                        <a class="collapse-item" href="{{route('admin.anuncio.index')}}">Lista de Anuncios</a>
+                    </div>
+                </div>
+            </li>
+    @endcan
 
 
 
+ 
+        @endcan
+
+        <!--Gestión de notas - coordinador - Admin-->
+        @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-file-alt"></i>
+                <span>Gestión de notas</span>
+            </a>
+            <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Notas</h6>
+                    <a class="collapse-item" href="{{url('lista_notas')}}">Asesores - Profesor</a>
+                    <a class="collapse-item" href="{{url('lista_empresas')}}">Asesores - Empresa</a>
+                </div>
+            </div>
+        </li>
+        @endcan
 
 
+        <!--Solicitud de notas - estudiante-->
+        @can('is-user')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-users-cog"></i>
+                <span>Solicitud de notas</span>
+            </a>
+            <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Notas</h6>
+                    <a class="collapse-item" href="{{url('solicitud/asesor')}}">Asesores - Profesor</a>
+                    <a class="collapse-item" href="{{url('solicitud/empresa')}}">Asesores - Empresa</a>
+                </div>
+            </div>
+        </li>
+        @endcan
 
 
 
@@ -194,10 +261,12 @@
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            @can('is-user')
+                            <a class="dropdown-item" href="{{url('profile/'.Auth()->user()->id.'/edit')}}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
+                            @endcan
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Settings
@@ -284,6 +353,7 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -294,7 +364,7 @@
 <script src="/js/sb-admin-2.min.js"></script>
 
 <!-- DataTable JavaScript -->
-<script>$(document).ready( function () {
+<script type="text/javascript">$(document).ready( function () {
         $('#dataTable').DataTable();
     } );
 </script>

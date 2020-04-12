@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Estudiante;
+use Illuminate\Support\Facades\Auth;
+
+
 class RegisterController extends Controller
 {
     /*
@@ -74,6 +78,16 @@ class RegisterController extends Controller
 
         $user->roles()->attach($role);
 
+        
+        //Estudiante::create(['id' => $user['id']],['nombre'=> $user['name']]);
+        Estudiante::create(['id' => $user['id']]);
+       
         return $user;
+
+
+
+        //Extra
+       
+
     }
 }

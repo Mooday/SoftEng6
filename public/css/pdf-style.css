@@ -1,0 +1,57 @@
+/*CSS para los documentos PDF*/
+#utp{ 
+    width: 2.24cm;
+    height: 2.24cm;
+    position: absolute;
+    left: 40px; 
+ }
+
+ #fisc{
+    width: 2.24cm;
+    height: 2.24cm;
+    position: absolute;
+    right: 40px;
+ }
+
+ header{
+     text-align: center;
+     text-transform: uppercase;
+     font-weight: bold;
+     opacity: 0.5;
+ }
+
+div{
+    text-transform: uppercase;
+    margin-left: 1.5cm;
+}
+
+ span{
+    margin-left: 1.5cm;
+    font-size: small;
+ }
+
+ section{
+    margin-left: 1.5cm;
+ }
+
+ strong{
+     text-transform: uppercase;
+ }
+
+ p{
+     text-align: justify;
+     margin-left: 1.5cm;
+     margin-right: 1.5cm;
+     font-size: small;
+ }
+
+b{
+    font-family: 'EdwardianScript';
+}
+
+ footer{
+     text-align: right;
+     margin-right: 1.5cm;
+     font-size: x-small;
+     opacity: 0.5;
+ }

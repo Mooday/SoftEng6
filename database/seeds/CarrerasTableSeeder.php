@@ -10,6 +10,11 @@ class CarrerasTableSeeder extends Seeder
      *
      * @return void
      */
+<<<<<<< HEAD
+=======
+
+    //Seed para insertar las carreras(Testing)
+>>>>>>> master
     public function run()
     {
         Carrera::truncate();

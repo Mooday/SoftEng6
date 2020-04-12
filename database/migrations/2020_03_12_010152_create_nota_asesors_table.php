@@ -4,25 +4,24 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarrerasTable extends Migration
+class CreateNotaAsesorsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-<<<<<<< HEAD
-=======
-
-    //Tabla de carreras
->>>>>>> master
     public function up()
     {
-        Schema::create('carreras', function (Blueprint $table) {
+        //Tabla de solicitudes para profesor asesor
+        Schema::create('nota_asesors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->integer('id_estudiante');
+            $table->integer('id_profesor');
+            $table->string('codigo')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
@@ -32,6 +31,6 @@ class CreateCarrerasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carreras');
+        Schema::dropIfExists('nota_asesors');
     }
 }

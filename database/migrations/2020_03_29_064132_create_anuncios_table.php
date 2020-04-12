@@ -4,23 +4,23 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarrerasTable extends Migration
+class CreateAnunciosTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-<<<<<<< HEAD
-=======
-
-    //Tabla de carreras
->>>>>>> master
     public function up()
     {
-        Schema::create('carreras', function (Blueprint $table) {
+        Schema::create('anuncios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->string('title');
+            $table->string('type');
+            $table->string('description');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateCarrerasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carreras');
+        Schema::dropIfExists('anuncios');
     }
 }

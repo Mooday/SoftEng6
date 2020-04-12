@@ -11,6 +11,11 @@ class CreateProfesorsTable extends Migration
      *
      * @return void
      */
+<<<<<<< HEAD
+=======
+
+    //Tabla de profesores
+>>>>>>> master
     public function up()
     {
         Schema::create('profesors', function (Blueprint $table) {
