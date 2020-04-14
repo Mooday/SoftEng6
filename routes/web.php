@@ -63,3 +63,7 @@ Route::get('lista_creditos','Solicitud6creditosController@index')->name('credito
 Route::post('lista_creditos/guardar','Solicitud6creditosController@store')->name('store');//gurdar solicitud de 6 creditos
 Route::get('lista_creditos/editar/{id}','Solicitud6creditosController@edit')->name('editar');//muestra la vista editar solicitud 6 creditos
 Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->name('update');//actualizar solicitud 6 creditos
+
+Route::get('autoridades', 'AutoridadController@index');//Muestra la lista de autoridades
+Route::get('autoridades/registrar-autoridad', 'AutoridadController@create');//Formulario para crear autoridades
+Route::post('autoridades/agregar', 'AutoridadController@store');//agregar autoridades

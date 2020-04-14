@@ -15,6 +15,8 @@ class AutoridadController extends Controller
     public function index()
     {
         //
+        $autoridades = Autoridad::paginate(10);
+        return view('Autoridad/autoridad_lista',compact('autoridades'));
     }
 
     /**
@@ -25,6 +27,7 @@ class AutoridadController extends Controller
     public function create()
     {
         //
+        return view('Autoridad/autoridad_crear');
     }
 
     /**
@@ -35,7 +38,14 @@ class AutoridadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Autoridad::create([
+            'nombre'=>$request['nombre'],
+            'apellido'=>$request['apellido'],
+            'cargo'=>$request['cargo'],
+            'status'=>$request['status'],
+            ]);
+
+        return redirect('autoridades')->with('status','Nuevo Anuncio creado correctamente!.');
     }
 
     /**
@@ -47,6 +57,7 @@ class AutoridadController extends Controller
     public function show(Autoridad $autoridad)
     {
         //
+        return 'Formulario para mostrar autoridades';
     }
 
     /**
@@ -58,6 +69,7 @@ class AutoridadController extends Controller
     public function edit(Autoridad $autoridad)
     {
         //
+        return 'Formulario para editar autoridades';
     }
 
     /**

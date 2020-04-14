@@ -179,7 +179,24 @@
         </li>
         @endcan
 
-
+<!-- Seccion de autoridades -->
+<hr class="sidebar-divider my-0">
+    @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_auto" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-medal"></i>
+                <span>Gestión de Autoridades</span>
+            </a>
+            <div id="collapse_auto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Autoridades</h6>
+                    <a class="collapse-item" href="{{url('autoridades')}}">Ver Autoridades</a>
+                    <a class="collapse-item" href="{{url('autoridades/registrar-autoridad')}}">Crear Autoridades</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+<!-- Fin seccion de Autoridades  -->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
