@@ -12,9 +12,7 @@ class CreateAutoridadsTable extends Migration
      * @return void
      */
 
-
     //Tabla de autoridades
-
     public function up()
     {
         Schema::create('autoridads', function (Blueprint $table) {
@@ -22,6 +20,7 @@ class CreateAutoridadsTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('cargo');
+            $table->integer('status');
             $table->timestamps();
         });
     }
