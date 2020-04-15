@@ -1,12 +1,15 @@
 @extends('layouts.template.template')
 @section('content')
+<h3>Listado de solicitudes para profesor asesor</h3>
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Solicitud</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-<link rel="stylesheet" href="css/sol-style.css">
-<h1 id="h1-center">Solicitudes de notas para profesor asesor</h1>
-
-<table id="lista_notas" class="table table-striped table-sm">
-
-    <thead class="thead-dark">
+    <thead>
         <tr>
             <th>Estudiante</th>
             <th>Cédula</th>
@@ -27,14 +30,16 @@
             <td>{{$estudiante->cedula}}</td>
             <td>{{$nota_a->created_at}}</td>
     
-            <td id="ver-sol-btn"><a id="ver_sol_pe" href="{{url('solicitud/asesor', $nota_a)}}" class="btn btn-primary btn-md">Ver</a></td>
-    
+            <td><a href="{{url('solicitud/asesor', $nota_a)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+
     @can('delete-users')
     <td id="ver-sol-btn">    
     <form action="{{url('solicitud/asesor/'.$nota_a->id)}}" method="post">
         @csrf
         @method('DELETE')
-        <input type="submit" value="Eliminar" class="btn btn-danger" onclick="return confirm('¿Eliminar solicitud?');">
+        <button type="submit" class="btn btn-danger btn-circle" onclick="return confirm('¿Eliminar solicitud?');">
+            <i class="fas fa-trash"></i>
+        </button>
         </form>
     </td>
     @endcan
@@ -45,7 +50,10 @@
         @endforeach
     </tbody>
 
-</table>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div class="pagination justify-content-center">
 {{$notas_asesor->links()}}
