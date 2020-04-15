@@ -6,15 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h5>Fecha Actual</h5>
-    <p></p><br/>
-    <p></p><br/>
-    <p></p><br/>
-    <p></p><br/>
-    <p></p><br/>
+    
+    <<br/>
+    <<br/>
+    <<br/>
+    <<br/>
     <h5>Ingeniera</h5>
     <h4>asda</h4>
-    <h5>{{$cargos}}</h5>
+    @foreach($cargos as $cargoss)
+    <h5>{{$cargoss->id}}</h5>
+    @endforeach
 
 </body>
 </html>
