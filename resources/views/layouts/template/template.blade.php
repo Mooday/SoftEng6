@@ -123,10 +123,6 @@
     <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-
-
-
-
         <!--Gestión de notas - coordinador - Admin-->
         @can('manage-users')
         <li class="nav-item">
@@ -178,6 +174,27 @@
             </div>
         </li>
         @endcan
+
+
+        <!-- Ingreso de Tesis a biblioteca -->
+        <hr class="sidebar-divider my-0">
+
+        @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_biblioteca" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-atlas"></i>
+                <span>Registro de Anteproyecto a Biblioteca</span>
+            </a>
+            <div id="collapse_biblioteca" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Registro a Biblioteca</h6>
+                    <a class="collapse-item" href="{{url('biblioteca')}}">Nota a Biblioteca</a>
+            
+                </div>
+            </div>
+        </li>
+        @endcan
+
 
 <!-- Seccion de autoridades -->
 <hr class="sidebar-divider my-0">
