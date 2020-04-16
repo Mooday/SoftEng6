@@ -1,12 +1,15 @@
 @extends('layouts.template.template')
 @section('content')
-
-<link rel="stylesheet" href="css/sol-style.css">
-<h1 id="h1-center">Solicitudes para asesor de empresa</h1>
-
-<table id="lista_notas" class="table table-striped table-sm">
+<h3>Listado de solicitudes para asesor de empresa</h3>
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Solicitud</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     
-    <thead class="thead-dark">
+    <thead>
     <tr>
         <th>Estudiante</th>
         <th>Cédula</th>
@@ -28,10 +31,10 @@
             <td>{{$estudiante->cedula}}</td>
             <td>{{$dato_empresa->nombre_empresa}}</td>
             <td>{{$dato_empresa->created_at}}</td>
-            <td id="ver-sol-btn"><a id="ver_sol_pe" href="{{url('asesor_emp', $dato_empresa)}}" class="btn btn-primary">Ver</a></td>
+            <td><a href="{{url('asesor_emp', $dato_empresa)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
             @can('delete-users')
-            <td id="ver-sol-btn">
-            <a href="{{url('borrar_nota_empresa/'.$dato_empresa->id)}}" class="btn btn-danger" onclick="return confirm('¿Eliminar solicitud?');">Eliminar</a>
+            <td>
+            <a href="{{url('borrar_nota_empresa/'.$dato_empresa->id)}}" class="btn btn-danger btn-circle" onclick="return confirm('¿Eliminar solicitud?');"><i class="fas fa-trash"></i></a>
             </td>
             @endcan
             @endif
@@ -41,9 +44,11 @@
     </tbody>
 
 </table>
+</div>
+</div>
+</div>
 
 <div class="pagination justify-content-center">
 {{$notas_empresa->links()}}
 </div>
-
 @endsection

@@ -1,24 +1,20 @@
 @extends('layouts.template.template')
 @section('content')
+<h3>Solicitud para asesor de empresa</h3>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud de asesor de empresa</title>
-    <link rel="stylesheet" href="{{asset('css/sol-style.css')}}">
-</head>
-<body>
-<h1>Solicitud para asesor de empresa</h1>
     <form id="form-emp-btn" action="{{url('guardar/empresa')}}" method="post">
     @csrf
-
-    <table class="table table-striped table-sm">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Datos</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
         <tbody>
             <tr>
-                <td>Nombre:</td>
+                <td>Nombre del asesor:</td>
                 @if(isset($nota_emp_asesor))
                 <td><input type="text" name="nombre_asesor" value="{{$nota_emp_asesor->nombre_asesor}}" class="form-control"></td>
                 @else
@@ -27,7 +23,7 @@
             </tr>
 
             <tr>
-            <td>Apellido:</td>
+            <td>Apellido del asesor:</td>
                 @if(isset ($nota_emp_asesor))
                 <td><input type="text" name="apellido_asesor" value="{{$nota_emp_asesor->apellido_asesor}}" class="form-control"></td>
                 @else
@@ -63,13 +59,14 @@
             </tr>
 
         </tbody>
-
-    </table>
-<br>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div>
     @if(isset($carrera))
-    <input type="button" id="save-sol_p" value="Realizar solicitud" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mimodal">
+    <input type="button" value="Realizar solicitud" class="btn btn-primary" data-toggle="modal" data-target="#mimodal">
 
     <!-- Modal -->
     <div class="modal fade" id="mimodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -94,14 +91,11 @@
 
     @else
         <fieldset disabled>
-        <input type="submit" value="Realizar Solicitud" class="btn btn-outline-success btn-lg"><br><br>
+        <input type="submit" value="Realizar Solicitud" class="btn btn-primary"><br><br>
         <div class="alert alert-warning">Por favor actualice sus datos del <a class="alert-link" href="{{url('profile/'.Auth()->user()->id.'/edit')}}">perfil</a> antes de realizar la solicitud.<a class="close" data-dismiss="alert" href="">x</a></div><br>
         </fieldset>
     @endif
 </div>
 
 </form>
-</body>
-</html>
-
 @endsection

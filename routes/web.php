@@ -51,6 +51,7 @@ Route::get('/Nota a Biblioteca','BibliotecaController@exportar')->name('Nota_a_B
 Route::resource('profile', 'EstudianteController');//Estudiante accede a la vista del perfil de estudiante
 Route::resource('solicitud/asesor','NotaAsesorController');//Manejo de solicitudes de profesor asesor
 
+
 Route::get('solicitud/empresa', 'RegistroController@solicitud_empresa');//Estudiante ingresa a la solicitud de empresa
 route::get('profesores', 'RegistroController@profesores');//Estudiante accede a la lista de profesores 
 Route::get('asesor_prof/{id}', 'RegistroController@mostrar_profesor_est');//Estudiante devuelve el profesor elegido a la solicitud 
@@ -70,3 +71,5 @@ Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->
 Route::get('autoridades', 'AutoridadController@index');//Muestra la lista de autoridades
 Route::get('autoridades/registrar-autoridad', 'AutoridadController@create');//Formulario para crear autoridades
 Route::post('autoridades/agregar', 'AutoridadController@store');//agregar autoridades
+
+Route::resource('registro_eventos', 'registro_eventosController');//Muestra los Eventos Ocurridos
