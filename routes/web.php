@@ -73,3 +73,40 @@ Route::get('autoridades/registrar-autoridad', 'AutoridadController@create');//Fo
 Route::post('autoridades/agregar', 'AutoridadController@store');//agregar autoridades
 
 Route::resource('registro_eventos', 'registro_eventosController');//Muestra los Eventos Ocurridos
+
+
+// rutas de actividades de extencion
+Route::resource('actividad','ActividadesController');
+Route::get('/show','ActividadesController@index');
+Route::get('/resusita','ActividadesController@resusita')->name('resusita');
+Route::get('/todo','ActividadesController@index')->name('todo');
+
+Route::post('almacenaactividad', 'ActividadesController@store');
+route::get('/editaractividad/{id}', 'ActividadesController@edit')->name('editaractividad');
+route::put('/updateactividad/{id}', 'ActividadesController@update')->name('updateactividad');
+route::get('/eliminaactividad/{id}', 'ActividadesController@delete')->name('eliminaactividad');
+route::get('/eliminasiempre/{id}', 'ActividadesController@destroy')->name('eliminasiempre');
+//actividades 2
+Route::resource('actividad2','ActividadesController2');
+Route::get('/show2','ActividadesController2@index');
+Route::get('/resusita2','ActividadesController2@resusita')->name('resusita2');
+Route::get('/todo2','ActividadesController2@index')->name('todo2');
+
+Route::post('almacenaactividad2', 'ActividadesController2@store');
+route::get('/editaractividad2/{id}', 'ActividadesController2@edit')->name('editaractividad2');
+route::put('/updateactividad2/{id}', 'ActividadesController2@update')->name('updateactividad2');
+route::get('/eliminaactividad2/{id}', 'ActividadesController2@delete')->name('eliminaactividad2');
+route::get('/eliminasiempre2/{id}', 'ActividadesController2@destroy')->name('eliminasiempre2');
+//actividades 3
+Route::resource('actividad3','ActividadesController3');
+Route::get('/show3','ActividadesController3@index');
+Route::get('/resusita3','ActividadesController3@resusita')->name('resusita3');
+Route::get('/todo3','ActividadesController3@index')->name('todo3');
+
+Route::post('almacenaactividad3', 'ActividadesController3@store');
+route::get('/editaractividad3/{id}', 'ActividadesController3@edit')->name('editaractividad3');
+route::put('/updateactividad3/{id}', 'ActividadesController3@update')->name('updateactividad3');
+route::get('/eliminaactividad3/{id}', 'ActividadesController3@delete')->name('eliminaactividad3');
+route::get('/eliminasiempre3/{id}', 'ActividadesController3@destroy')->name('eliminasiempre3');
+
+//fin de rutas de actividades de extencion 
