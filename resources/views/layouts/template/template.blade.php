@@ -214,6 +214,25 @@
         </li>
     @endcan
 <!-- Fin seccion de Autoridades  -->
+<!-- Seccion de actividades -->
+<hr class="sidebar-divider my-0">
+    @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_auto" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-window-restore"></i>
+                <span>Informe de Actividades</span>
+            </a>
+            <div id="collapse_auto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Informe de Actividades</h6>
+                    <a class="collapse-item" href="{{route('actividad.index')}}">Educación continua</a>
+                    <a class="collapse-item" href="{{route('actividad2.index')}}">Universidad, Empresas etc.</a>
+                    <a class="collapse-item" href="{{route('actividad3.index')}}">Otras actividades</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+<!-- Fin seccion de actividades  -->
 
 <!-- Seccion de Registro de Eventos -->
 <hr class="sidebar-divider my-0">
