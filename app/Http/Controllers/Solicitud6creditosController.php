@@ -42,7 +42,7 @@ class Solicitud6creditosController extends Controller
         $solicitud6creditosagregar->carrera=$request->carrera;
         $solicitud6creditosagregar->email=$request->email;
         $solicitud6creditosagregar->telefono=$request->telefono;
-        $solicitud6creditosagregar->estatus="faltan documentos";
+        $solicitud6creditosagregar->estatus="entregar creditos";
         $solicitud6creditosagregar->save();
         return back()->with('agregar', 'agregado corecatmente');
     }
