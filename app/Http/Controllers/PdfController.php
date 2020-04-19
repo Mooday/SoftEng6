@@ -15,7 +15,7 @@ class PdfController extends Controller
     //
     function imprimir()
     {
-        $cargos=Autoridad::all('cargo');
+        $cargos=Autoridad::all();
         $pdf = \PDF::loadview('pdf', compact('cargos'));
         return $pdf->download('primerpdf.pdf');
     }

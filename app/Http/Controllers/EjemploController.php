@@ -93,6 +93,8 @@ class EjemploController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $datosAnteproyecto= anteproyecto::findOrFail($id);
+        anteproyecto:: destroy($id);
+        return redirect('anteproyectosregistrados'); 
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asesor de empresa</title>
+    <title>Biblioteca</title>
     <link rel="stylesheet" href="css/pdf-style.css">
 </head>
 <img id="utp" src="uploads/avatars/logo_utp.jpg">

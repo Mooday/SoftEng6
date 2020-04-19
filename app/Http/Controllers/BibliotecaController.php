@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Autoridad;
+use App\NotaBiblioteca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
-class AutoridadController extends Controller
+class BibliotecaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,15 @@ class AutoridadController extends Controller
      */
     public function index()
     {
-        //
-        $autoridades = Autoridad::paginate(10);
-        return view('Autoridad/autoridad_lista',compact('autoridades'));
+        $tesina=DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Nombre_estudiante2','Cedula_est2','Carrera','Nombre_anteproyecto')->where('Estado','=','Finalizado')->get();
+        return view('Biblioteca/biblioteca', compact('tesina'));
+    }
+
+
+    public function exportar(){
+        $estu= DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Nombre_estudiante2','Cedula_est2','Carrera','Nombre_anteproyecto')->where('Estado','=','Finalizado')->get();
+        $pdf= PDF::loadView('Biblioteca.pdf_biblioteca',compact('estu'));
+        return $pdf->download('Nota-Biblioteca.pdf');
     }
 
     /**
@@ -26,8 +34,7 @@ class AutoridadController extends Controller
      */
     public function create()
     {
-        //
-        return view('Autoridad/autoridad_crear');
+        
     }
 
     /**
@@ -38,60 +45,51 @@ class AutoridadController extends Controller
      */
     public function store(Request $request)
     {
-        Autoridad::create([
-            'nombre'=>$request['nombre'],
-            'apellido'=>$request['apellido'],
-            'cargo'=>$request['cargo'],
-            'status'=>$request['status'],
-            ]);
-
-        return redirect('autoridades')->with('status','Nuevo Anuncio creado correctamente!.');
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Autoridad  $autoridad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Autoridad $autoridad)
+    public function show($id)
     {
-        //
-        return 'Formulario para mostrar autoridades';
+      
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Autoridad  $autoridad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Autoridad $autoridad)
+    public function edit($id)
     {
-        //
-        return 'Formulario para editar autoridades';
+        
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Autoridad  $autoridad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Autoridad $autoridad)
+    public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Autoridad  $autoridad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Autoridad $autoridad)
+    public function destroy($id)
     {
-        //
+
     }
 }

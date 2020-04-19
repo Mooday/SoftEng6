@@ -11,16 +11,14 @@ class AutoridadsTableSeeder extends Seeder
      * @return void
      */
 
-
     //Seed para insertar las autoridades(Testing)
-
     public function run()
     {
         Autoridad::truncate();
 
-        Autoridad::create(['nombre'=>'Clifton','apellido'=>'Clunie','cargo'=>'Decano']);
-        Autoridad::create(['nombre'=>'Giovana','apellido'=>'Garrido','cargo'=>'Vicedecana Académica']);
-        Autoridad::create(['nombre'=>'Lydia','apellido'=>'de Toppin','cargo'=>'Vicedecana de Investigación, Postgrado y Extensión']);
-        Autoridad::create(['nombre'=>'Juan','apellido'=>'Saldaña','cargo'=>'Coordinador']);
+        Autoridad::create(['nombre'=>'Clifton','apellido'=>'Clunie','cargo'=>'Decano','status'=>0]);
+        Autoridad::create(['nombre'=>'Giovana','apellido'=>'Garrido','cargo'=>'Vicedecana Académica','status'=>1]);
+        Autoridad::create(['nombre'=>'Lydia','apellido'=>'de Toppin','cargo'=>'Vicedecana de Investigación, Postgrado y Extensión','status'=>1]);
+        Autoridad::create(['nombre'=>'Juan','apellido'=>'Saldaña','cargo'=>'Coordinador', 'status'=>1]);
     }
 }

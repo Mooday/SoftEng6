@@ -123,10 +123,6 @@
     <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-
-
-
-
         <!--Gestión de notas - coordinador - Admin-->
         @can('manage-users')
         <li class="nav-item">
@@ -180,6 +176,82 @@
         @endcan
 
 
+        <!-- Ingreso de Tesis a biblioteca -->
+        <hr class="sidebar-divider my-0">
+
+        @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_biblioteca" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-atlas"></i>
+                <span>Registro de Anteproyecto a Biblioteca</span>
+            </a>
+            <div id="collapse_biblioteca" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Registro a Biblioteca</h6>
+                    <a class="collapse-item" href="{{url('biblioteca')}}">Nota a Biblioteca</a>
+            
+                </div>
+            </div>
+        </li>
+        @endcan
+
+
+<!-- Seccion de autoridades -->
+<hr class="sidebar-divider my-0">
+    @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_auto" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-medal"></i>
+                <span>Gestión de Autoridades</span>
+            </a>
+            <div id="collapse_auto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Autoridades</h6>
+                    <a class="collapse-item" href="{{url('autoridades')}}">Ver Autoridades</a>
+                    <a class="collapse-item" href="{{url('autoridades/registrar-autoridad')}}">Crear Autoridades</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+<!-- Fin seccion de Autoridades  -->
+<!-- Seccion de actividades -->
+<hr class="sidebar-divider my-0">
+    @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_auto" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-window-restore"></i>
+                <span>Informe de Actividades</span>
+            </a>
+            <div id="collapse_auto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Informe de Actividades</h6>
+                    <a class="collapse-item" href="{{route('actividad.index')}}">Educación continua</a>
+                    <a class="collapse-item" href="{{route('actividad2.index')}}">Universidad, Empresas etc.</a>
+                    <a class="collapse-item" href="{{route('actividad3.index')}}">Otras actividades</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+<!-- Fin seccion de actividades  -->
+
+<!-- Seccion de Registro de Eventos -->
+<hr class="sidebar-divider my-0">
+    @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_regeve" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-address-book"></i>
+                <span>Registros de Eventos</span>
+            </a>
+            <div id="collapse_regeve" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Autoridades</h6>
+                    <a class="collapse-item" href="{{url('registro_eventos')}}">Ver Eventos Registrados</a>
+                    <a class="collapse-item" href="{{url('registro_eventos/create')}}">Registrar Eventos</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+<!-- Fin seccion de Registro de Eventos  -->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
