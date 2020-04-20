@@ -58,7 +58,7 @@ class Solicitud6creditosController extends Controller
         $solicitud6creditosagregar->estatus="entregar creditos";
         $solicitud6creditosagregar->id_user=Auth::user()->id;
         $solicitud6creditosagregar->save();
-        return back()->with('agregar', 'agregado corecatmente');
+        return back()->with('agregar', 'Agregado Correctamente!');
     }
 
     /**
@@ -101,7 +101,7 @@ class Solicitud6creditosController extends Controller
         $solicitud6creditosupdate->telefono=$request->telefono;
         $solicitud6creditosupdate->estatus=$request->estatus;
         $solicitud6creditosupdate->save();
-        return back()->with('update', 'actualizada correctamente');
+        return back()->with('update', 'Actualizada Correctamente!');
     }
 
     /**
