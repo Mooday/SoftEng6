@@ -2,7 +2,7 @@
 @section('content')
 <h3>Solicitud para asesor de empresa</h3>
 
-<form id="form-emp" action="{{url('empresapdf')}}" method="post">
+<form action="{{url('empresapdf')}}" method="post">
 @csrf
 
 <input type="text" name="id" value="{{$nota_emp_asesor->id}}" style="display:none">
@@ -55,7 +55,7 @@
 </div>
 
 <div>
-<input id="pdf-emp" type="submit" value="Generar documento" class="btn btn-primary btn-lg">
+<input type="submit" value="Generar documento" class="btn btn-primary">
 </div>
 </form>
 

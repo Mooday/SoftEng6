@@ -18,10 +18,10 @@ class ProfesorTableSeeder extends Seeder
     {
         Profesor::truncate();
 
-        Profesor::create(['nombre'=>'Juan','apellido'=>'Saldaña']);
-        Profesor::create(['nombre'=>'Cecilia','apellido'=>'de Beitia']);
-        Profesor::create(['nombre'=>'Vladimir','apellido'=>'Villarreal']);
-        Profesor::create(['nombre'=>'Lilia','apellido'=>'Muñoz']);
-        Profesor::create(['nombre'=>'Yuraisma','apellido'=>'Moreno']);
+        Profesor::create(['nombre'=>'Juan','apellido'=>'Saldaña','status'=>1]);
+        Profesor::create(['nombre'=>'Cecilia','apellido'=>'de Beitia','status'=>1]);
+        Profesor::create(['nombre'=>'Vladimir','apellido'=>'Villarreal','status'=>1]);
+        Profesor::create(['nombre'=>'Lilia','apellido'=>'Muñoz','status'=>1]);
+        Profesor::create(['nombre'=>'Yuraisma','apellido'=>'Moreno','status'=>1]);
     }
 }
