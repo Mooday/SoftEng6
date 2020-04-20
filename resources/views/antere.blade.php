@@ -47,7 +47,7 @@
             <td>{{$ejemplo->Carrera}}</td>        
             <td>{{$ejemplo->created_at}}</td>
             <td>{{$ejemplo->Estado}}</td>
-            <td><a href="{{url('/anteproyectosregistrados/'.$ejemplo->id.'/edit')}}">Editar</a>  | Borrar | <a href="{{url('imprimir-pdf')}}"> Generar PDF</a></td>
+            <td><a href="{{url('/anteproyectosregistrados/'.$ejemplo->id.'/edit')}}">Editar</a>  | Borrar | <a href="{{url('imprimir-pdf/'.$ejemplo->id.'/pdf')}}">Generar PDF</a>  </td>
         </tr>
         </tr>
         @endforeach

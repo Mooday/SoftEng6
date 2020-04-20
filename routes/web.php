@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('registroestudiante', function(){
     //return view ('hola');
 //});
-Route::get('/imprimir-pdf','PdfController@imprimir')->name('imprimir');
+Route::get('imprimir-pdf/{id}/pdf','PdfController@imprimir')->name('imprimir');
 
 Route::resource('registroestudiante','AnteproyectoController'); 
 
