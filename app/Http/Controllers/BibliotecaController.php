@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\NotaBiblioteca;
 use Illuminate\Http\Request;
-use App\anteproyecto;
-use App\estado;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
-class EjemploController extends Controller
+class BibliotecaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,15 @@ class EjemploController extends Controller
      */
     public function index()
     {
-        //
-        
-        $estados['ejemplos2']=estado::all();
-        $datos['ejemplos']=anteproyecto::paginate(5);
-        return view('antere',$datos,$estados);
+        $tesina=DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Nombre_estudiante2','Cedula_est2','Carrera','Nombre_anteproyecto')->where('Estado','=','Finalizado')->get();
+        return view('Biblioteca/biblioteca', compact('tesina'));
+    }
+
+
+    public function exportar(){
+        $estu= DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Nombre_estudiante2','Cedula_est2','Carrera','Nombre_anteproyecto')->where('Estado','=','Finalizado')->get();
+        $pdf= PDF::loadView('Biblioteca.pdf_biblioteca',compact('estu'));
+        return $pdf->download('Nota-Biblioteca.pdf');
     }
 
     /**
@@ -29,7 +34,7 @@ class EjemploController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -40,7 +45,7 @@ class EjemploController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -51,7 +56,7 @@ class EjemploController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
@@ -62,10 +67,7 @@ class EjemploController extends Controller
      */
     public function edit($id)
     {
-        //
-        $dato=anteproyecto::findOrFail($id);
-        $estadosss=estado::all();
-        return view('edit', compact('dato','estadosss'));
+        
     }
 
     /**
@@ -77,13 +79,7 @@ class EjemploController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $datosAnteproyecto=request()->except(['_token','_method']);
-        anteproyecto::where('id','=',$id)->update($datosAnteproyecto);
-
-        return redirect('anteproyectosregistrados');
-
-
+       
     }
 
     /**
@@ -94,8 +90,6 @@ class EjemploController extends Controller
      */
     public function destroy($id)
     {
-        $datosAnteproyecto= anteproyecto::findOrFail($id);
-        anteproyecto:: destroy($id);
-        return redirect('anteproyectosregistrados'); 
+
     }
 }
