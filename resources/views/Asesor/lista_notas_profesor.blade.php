@@ -14,9 +14,9 @@
             <th>Estudiante</th>
             <th>Cédula</th>
             <th>Fecha de solicitud</th>
-            <th></th>
+            <th>Ver</th>
             @can('delete-users')
-            <th></th>
+            <th>Borrar</th>
             @endcan
         </tr>
     </thead>
@@ -33,7 +33,7 @@
             <td><a href="{{url('solicitud/asesor', $nota_a)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
 
     @can('delete-users')
-    <td id="ver-sol-btn">    
+    <td>    
     <form action="{{url('solicitud/asesor/'.$nota_a->id)}}" method="post">
         @csrf
         @method('DELETE')

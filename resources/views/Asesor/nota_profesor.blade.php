@@ -1,8 +1,7 @@
 @extends('layouts.template.template')
 @section('content')
 <h3>Solicitud para profesor asesor</h3>
-
-<form id="dt-sol-prof" action="{{url('solicitud/asesor/.Profesor_Asesor')}}" method="post">
+<form action="{{url('solicitud/asesor/.Profesor_Asesor')}}" method="post">
 @csrf
 @method('PATCH')
 <input type="text" name="id" value="{{$nota_prof_asesor->id}}" style="display:none">
@@ -53,7 +52,7 @@
 </div>
 
 <div>
-<input id="pdf-prof" type="submit" value="Generar documento" class="btn btn-primary btn-lg">
+<input type="submit" value="Generar documento" class="btn btn-primary">
 </div>
 </form>
 @endsection

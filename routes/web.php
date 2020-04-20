@@ -53,7 +53,7 @@ Route::resource('solicitud/asesor','NotaAsesorController');//Manejo de solicitud
 
 
 Route::get('solicitud/empresa', 'RegistroController@solicitud_empresa');//Estudiante ingresa a la solicitud de empresa
-route::get('profesores', 'RegistroController@profesores');//Estudiante accede a la lista de profesores 
+route::get('listado_profesores', 'RegistroController@profesores');//Estudiante accede a la lista de profesores 
 Route::get('asesor_prof/{id}', 'RegistroController@mostrar_profesor_est');//Estudiante devuelve el profesor elegido a la solicitud 
 Route::post('guardar/empresa', 'RegistroController@guardar_empresa');//Estudiante guarda solicitud de asesor de empresa
 

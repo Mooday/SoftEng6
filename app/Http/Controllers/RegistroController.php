@@ -9,6 +9,7 @@ use App\Carrera;
 use App\Profesor;
 use App\Empresa;
 use App\Autoridad;
+use App\NotaAsesor;
 use Barryvdh\DomPDF\Facade as PDF;
 
 use Carbon\Carbon;
@@ -29,7 +30,9 @@ class RegistroController extends Controller
         $profesor= Profesor::where('id', '=', $id_prof)->first();
         $estudiante = Estudiante::where('id', '=', Auth()->id())->first();
         $carrera = Carrera::join('estudiantes', 'estudiantes.id_carrera', '=', 'carreras.id')->where('estudiantes.id', '=', Auth()->id())->first(['carreras.id', 'carreras.nombre']);
-        return view('Asesor/solicitud_profesor', compact(['profesor', 'estudiante', 'carrera']));
+        $solicitudes_profesor = NotaAsesor::where('id_estudiante', Auth()->id())->orderBy('id', 'DESC')->get();
+        $profesores = Profesor::all();
+        return view('Asesor/solicitud_profesor', compact(['profesor', 'estudiante', 'carrera', 'solicitudes_profesor', 'profesores']));
     } 
 
 
@@ -38,19 +41,16 @@ class RegistroController extends Controller
     {
         $estudiante = Estudiante::where('id', '=', Auth()->id())->first();
         $carrera = Carrera::join('estudiantes', 'estudiantes.id_carrera', '=', 'carreras.id')->where('carreras.id', '=', $estudiante['id_carrera'])->first(['carreras.id', 'carreras.nombre']);
-        return view('Asesor/solicitud_empresa', compact(['estudiante', 'carrera']));
+        $solicitudes_empresa = Empresa::where('id_estudiante', Auth()->id())->orderBy('id', 'DESC')->get();
+        return view('Asesor/solicitud_empresa', compact(['estudiante', 'carrera', 'solicitudes_empresa']));
     }
 
     //Método con el cual el estudiante crea la solicitud para asesor de empresa
     public function guardar_empresa()
     {
         $request = request()->except('_token');
-        $estudiante = Estudiante::where('id', '=', Auth()->id())->first();
-        $carrera = Carrera::join('estudiantes', 'estudiantes.id_carrera', '=', 'carreras.id')->where('carreras.id', '=', $estudiante['id_carrera'])->first(['carreras.id', 'carreras.nombre']);
         $nota_emp_asesor = Empresa::create(['id_estudiante' => $request['id_estudiante'], 'nombre_asesor' => $request['nombre_asesor'], 'apellido_asesor' => $request['apellido_asesor'], 'nombre_empresa' => $request['nombre_empresa']]);
-        $id_last = Empresa::max('id');
-        $nota_emp_asesor = Empresa::where('id', $id_last)->first();
-        return view('Asesor/solicitud_empresa', compact(['estudiante', 'carrera', 'nota_emp_asesor']));
+        return redirect('solicitud/empresa');
     }
 
 
@@ -88,8 +88,9 @@ class RegistroController extends Controller
         $dia = $date->isoformat('D');
         $mes = $date->isoformat('MMMM');
         $año = $date->isoformat('Y'); 
+        $fecha = $dia.' de '.$mes.' de '.$año;
 
-        $pdf_empresa = PDF::loadview('Asesor/pdf_empresa', compact(['nota_emp_asesor', 'estudiante', 'carrera', 'coordinador', 'dia', 'mes', 'año']));
+        $pdf_empresa = PDF::loadview('Asesor/pdf_empresa', compact(['nota_emp_asesor', 'estudiante', 'carrera', 'coordinador', 'fecha']));
         return $pdf_empresa->stream('Nota_Asesor_Empresa.pdf');
     }
 

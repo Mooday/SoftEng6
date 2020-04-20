@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesor asesor</title>
+    <title>Solicitud Profesor Asesor</title>
     <link rel="stylesheet" href="css/pdf-style.css">
 </head>
 <img id="utp" src="uploads/avatars/logo_utp.jpg">
@@ -24,7 +24,7 @@
 <br>
 <div>{{$nota_prof_asesor->codigo}}</div><br>
 <br>
-<span>David, {{$dia}} de {{$mes}} de {{$año}}</span><br>
+<span>David, {{$fecha}}</span><br>
 <br>
 <br>
 <Section>
@@ -44,7 +44,7 @@ E. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S. &nbsp;&nbsp;&nbsp;&n
 <p>
 Por este medio le comunico que el estudiante {{$estudiante->nombre.' '.$estudiante->apellido}} 
 con cédula {{$estudiante->cedula}} de la facultad de Ingeniería de Sistemas Computacionales, requiere 
-su colaboración como asesor del anteproyecto <i>TITULO DE ANTEPROYECTO</i>, para optar por el título de 
+su colaboración como asesor de su anteproyecto de trabajo de graduación, para optar por el título de 
 {{$carrera->nombre}}.
 </p><br>
 <span>Agradeciendo su amable atención, queda de usted.</span><br>

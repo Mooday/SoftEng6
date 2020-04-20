@@ -128,7 +128,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-file-alt"></i>
-                <span>Gestión de Notas</span>
+                <span>Solicitudes de Asesor</span>
             </a>
             <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -146,13 +146,13 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_notas" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-file-alt"></i>
-                <span>Solicitud de Notas</span>
+                <span>Solicitud de Asesor</span>
             </a>
             <div id="collapse_notas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Notas</h6>
-                    <a class="collapse-item" href="{{url('solicitud/asesor')}}">Asesores - Profesor</a>
-                    <a class="collapse-item" href="{{url('solicitud/empresa')}}">Asesores - Empresa</a>
+                    <a class="collapse-item" href="{{url('solicitud/asesor')}}">Asesor - Profesor</a>
+                    <a class="collapse-item" href="{{url('solicitud/empresa')}}">Asesor - Empresa</a>
                 </div>
             </div>
         </li>
