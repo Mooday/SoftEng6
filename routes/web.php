@@ -67,3 +67,11 @@ Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->
 Route::get('autoridades', 'AutoridadController@index');//Muestra la lista de autoridades
 Route::get('autoridades/registrar-autoridad', 'AutoridadController@create');//Formulario para crear autoridades
 Route::post('autoridades/agregar', 'AutoridadController@store');//agregar autoridades
+Route::get('autoridades/editar/{id}', 'AutoridadController@edit');//Editar autoridades
+Route::patch('autoridades/{id}', 'AutoridadController@update');//Actualizar autoridades
+
+Route::get('profesores', 'ProfesorController@index');//Muestra la lista de profesores
+Route::get('profesores/registrar-profesor', 'ProfesorController@create');//Formulario para crear profesores
+Route::post('profesores/agregar', 'ProfesorController@store');//agregar profesores
+Route::get('profesores/editar/{id}', 'ProfesorController@edit');//Editar profesores
+Route::patch('profesores/{id}', 'ProfesorController@update');//Actualizar profesores

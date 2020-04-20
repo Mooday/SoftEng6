@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h3>Crear Autoridad</h3>
+    <h3>Crear Profesor</h3>
 
     <div class="card shadow mb-4">
         <!-- <div class="card-header py-3">
@@ -11,7 +11,7 @@
         <br>
 
         <div class="card-body">
-            <form action="{{url('/autoridades/agregar')}}" enctype="multipart/form-data" method="POST">
+            <form action="{{url('/profesores/agregar')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 {{method_field('POST')}}
 
@@ -26,13 +26,6 @@
                     <label class="col-md-2 col-form-label text-md-right">Apellido</label>
                     <div class="col-md-3">
                         <input id="apellido" type="text" name="apellido" value="" required autofocus>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label text-md-right">Cargo</label>
-                    <div class="col-md-3">
-                        <input id="cargo" type="text" name="cargo" value="" required autofocus>
                     </div>
                 </div>
 
@@ -52,11 +45,10 @@
                 </div>
                  <br>
                 <button type="submit" class="btn btn-success bg-gradient-success float-left">
-                    Crear Autoridad
+                    Crear Profesor
                 </button>
             </form>
         </div>
     </div>
-
 
 @endsection

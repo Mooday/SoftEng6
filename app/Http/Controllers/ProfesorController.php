@@ -14,7 +14,9 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        //
+         //
+         $profesores = Profesor::paginate(10);
+         return view('Profesor/profesor_lista',compact('profesores'));
     }
 
     /**
@@ -24,7 +26,8 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        //
+        // Vista para crear una nueva autoridad
+        return view('Profesor/profesor_crear');
     }
 
     /**
@@ -35,7 +38,14 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Profesor::create([
+            'nombre'=>$request['nombre'],
+            'apellido'=>$request['apellido'],
+            'status'=>$request['status'],
+            ]);
+
+            $request->session()->flash('success', $request['nombre'] . ' ' . $request['apellido'] . ' ha sido creado!');
+            return redirect('profesores');
     }
 
     /**
@@ -55,9 +65,11 @@ class ProfesorController extends Controller
      * @param  \App\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profesor $profesor)
+    public function edit($id)
     {
-        //
+        // Vista para editar autoridades
+        $editprofesor=Profesor::findOrFail($id);
+        return view('Profesor/profesor_edit', compact('editprofesor'));
     }
 
     /**
@@ -67,9 +79,17 @@ class ProfesorController extends Controller
      * @param  \App\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profesor $profesor)
+    public function update(Request $request, $id)
     {
-        //
+        //Actualización del registro
+        $actprofesor=Profesor::findOrFail($id);
+        $actprofesor->nombre=$request->nombre;
+        $actprofesor->apellido=$request->apellido;
+        $actprofesor->status=$request->status;
+        $actprofesor->save();
+
+        $request->session()->flash('success', $request['nombre'] . ' ' . $request['apellido'] . ' ha sido modificado');
+        return redirect('profesores');
     }
 
     /**
