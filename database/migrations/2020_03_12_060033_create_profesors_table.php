@@ -13,13 +13,13 @@ class CreateProfesorsTable extends Migration
      */
 
     //Tabla de profesores
-
     public function up()
     {
         Schema::create('profesors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('apellido');
+            $table->integer('status');
             $table->timestamps();
         });
     }

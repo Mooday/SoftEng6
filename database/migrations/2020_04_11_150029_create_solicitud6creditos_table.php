@@ -21,6 +21,7 @@ class CreateSolicitud6creditosTable extends Migration
             $table->string('email');
             $table->string('telefono');
             $table->string('estatus');
+            $table->bigInteger('id_user');
             $table->timestamps();
         });
     }

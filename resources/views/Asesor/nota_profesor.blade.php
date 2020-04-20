@@ -1,18 +1,20 @@
 @extends('layouts.template.template')
 @section('content')
-
-<link rel="stylesheet" href="{{asset('css/sol-style.css')}}">
-<a href="javascript:history.back()"><img src="{{asset('img/btn-atras.png')}}" width="40" height="40"></a>
-<h1>Datos de la solicitud</h1><br>
-
-<form id="dt-sol-prof" action="{{url('solicitud/asesor/.Profesor_Asesor')}}" method="post">
+<h3>Solicitud para profesor asesor</h3>
+<form action="{{url('solicitud/asesor/.Profesor_Asesor')}}" method="post">
 @csrf
 @method('PATCH')
 <input type="text" name="id" value="{{$nota_prof_asesor->id}}" style="display:none">
 <input type="text" name="id_estudiante" value="{{$estudiante->id}}" style="display:none">
 <input type="text" name="id_profesor" value="{{$profesor->id}}" style="display:none">
 
-<table class="table table-striped table-sm">
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Datos</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
     <tbody>
         <tr>
@@ -44,11 +46,13 @@
        
     </tbody>
 
-</table><br>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div>
-<input id="pdf-prof" type="submit" value="Generar documento" class="btn btn-primary btn-lg">
+<input type="submit" value="Generar documento" class="btn btn-primary">
 </div>
 </form>
-
 @endsection

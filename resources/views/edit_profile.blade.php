@@ -1,21 +1,16 @@
 @extends('layouts.template.template')
 @section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de estudiante</title>
-    <link rel="stylesheet" href="{{asset('css/sol-style.css')}}">
-</head>
-<body>
-<h1>Perfil de estudiante</h1>
-<form action="{{url('profile/.id')}}" method="post" class="form-inline">
+<h3>Perfil de estudiante</h3>
+<form action="{{url('profile/.id')}}" method="post">
 @csrf
 {{method_field('PATCH')}}
-
-<table class="table table-light">
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Datos</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+<table class="table table-light" id="dataTable" width="100%" cellspacing="0">
         <tr>
         @foreach($datos_estudiante as $dato)
         @endforeach
@@ -34,7 +29,14 @@
             <td>Cédula:</td>
             <td><input type="text" placeholder="Cédula" name="cedula" value="{{$dato->cedula}}" class="form-control" required></td>
         </tr>
-
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" placeholder="correo" name="correo" value="{{$dato->correo}}" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>telefono:</td>
+            <td><input type="text" placeholder="telefono" name="telefono" value="{{$dato->telefono}}" class="form-control" required></td>
+        </tr>
         <tr>
             <td>Carrera:</td>
             <td colspan="2"><select name="id_carrera" class="form-control" required>
@@ -45,12 +47,12 @@
             </select></td>
         </tr>
 
-</table>
+            </table>
+        </div>
+    </div>
+</div>
 
-<input id="save-profile" type="submit" value="Actualizar" class="btn btn-primary btn-lg">
+<input type="submit" value="Actualizar" class="btn btn-primary">
 
 </form>
-</body>
-</html>
-
 @endsection
