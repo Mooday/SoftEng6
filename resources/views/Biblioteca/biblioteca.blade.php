@@ -5,12 +5,12 @@
         <div class="card-header py-3">
             <div class="pull-left">
                 <h2 class="m-0 font-weight-bold text-primary">Listado de Anteproyectos</h2>
-                <td>
-                    <a href="{{route('Nota_a_Biblioteca')}}" class="btn btn-success" style="float: right;">Crear Nota</a>
-                </td>
             </div>
         </div>
     <div class="card-body">
+        <td>
+            <a href="{{route('Nota_a_Biblioteca')}}" class="btn btn-success" style="float: right;">Crear Nota</a>
+        </td>   
     <div class="table-responsive">
         <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
@@ -27,7 +27,9 @@
             <tbody>
             @foreach($tesina as $tesina)
                 <tr>
-                <td>{{$tesina->id}}</td>
+                 <td>
+                 <input type="Checkbox" value="tesis[{{$tesina->id}}]" id="{{$tesina->id}}" name="tesis">
+                 </td>
                 <td>{{$tesina->Nombre_estudiante1}}</td>
                 <td>{{$tesina->Cedula_est1}}</td>
                 <td>{{$tesina->Nombre_estudiante2}}</td>

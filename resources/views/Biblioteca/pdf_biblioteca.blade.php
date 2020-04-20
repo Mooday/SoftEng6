@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div>FISC-CH-022-2018</div><br>
 <br>
-<span>David, </span><br> 
+<span>David, {{$ldate = date('d')}} de {{$ldate = date('F')}} {{date('Y')}}</span><br> 
 <br>
 <br>
 <Section>
@@ -24,10 +24,12 @@ Detalle de los mismos:
 <br>
 <br>
 <br>
+
 <div style="text-align:center;">
-<table >
+<Strong>MATERIAS DE MAESTRÍA CON OPCIÓN A TÉSIS </Strong><br><br> 
+<table border="2" align="center">
     <thead>
-        <tr>
+        <tr  bgcolor="GREEN">
             <th style="text-align:center;">Nombre</th><br>
             <th style="text-align:center;">Cedula</th><br>
             <th style="text-align:center;">Carrera</th><br>
@@ -35,17 +37,42 @@ Detalle de los mismos:
         </tr>
     </thead>
     <tbody>
-        @foreach ($estu as $estu)
+        @foreach ($materias as $materias)
         <tr>
-        <td style="text-align:center;">{{$estu->Nombre_estudiante1, $estu->Nombre_estudiante2}}</td>
-        <td style="text-align:center;">{{$estu->Cedula_est1,$estu->Cedula_est2}}</td>
-        <td style="text-align:center;">{{$estu->Carrera}}</td>
-        <td style="text-align:center;">{{$estu->Nombre_anteproyecto}}</td>
+            <td style="text-align:center;">{{$materias->Nombre_estudiante1}}</td>
+            <td style="text-align:center;">{{$materias->Cedula_est1}}</td>
+            <td style="text-align:center;">{{$materias->Carrera}}</td>
+            <td style="text-align:center;">{{$materias->Nombre_anteproyecto}}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 </div>
+
+<div style="text-align:center;">
+    <Strong>TÉSIS Y TEÓRICOS PRÁCTICOS  </Strong><br><br> 
+    <table border="2" align="center">
+        <thead>
+            <tr  bgcolor="GREEN">
+                <th style="text-align:center;">Nombre</th><br>
+                <th style="text-align:center;">Cedula</th><br>
+                <th style="text-align:center;">Carrera</th><br>
+                <th style="text-align:center;">Titulo</th><br> 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($tesis as $tesis)
+            <tr>
+                <td style="text-align:center;">{{$tesis->Nombre_estudiante1}}</td>
+                <td style="text-align:center;">{{$tesis->Cedula_est1}}</td>
+                <td style="text-align:center;">{{$tesis->Carrera}}</td>
+                <td style="text-align:center;">{{$tesis->Nombre_anteproyecto}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    </div>
+
 <br>
 <br>
 <br>
@@ -68,8 +95,5 @@ Centro Regional de Chiriquí<br>
 <br>
 <br>
 <br>
-<footer>
-El Señor es mi Pastor, nada me falta. &nbsp;&nbsp;&nbsp;Salmo 23
-</footer>
 </body>
 </html>
