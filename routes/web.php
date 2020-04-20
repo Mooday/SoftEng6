@@ -45,7 +45,7 @@ Route::get('/testing', function(){
 });
 
 Route::get('/biblioteca','BibliotecaController@index');//Coordinador accede a anteproyectos finalizados
-Route::get('/Nota a Biblioteca','BibliotecaController@exportar')->name('Nota_a_Biblioteca');//Ruta para descargar el pdf
+Route::post('/Nota a Biblioteca','BibliotecaController@exportar')->name('Nota_a_Biblioteca');//Ruta para descargar el pdf
 
 
 Route::resource('profile', 'EstudianteController');//Estudiante accede a la vista del perfil de estudiante

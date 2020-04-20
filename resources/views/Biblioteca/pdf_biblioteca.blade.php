@@ -37,12 +37,12 @@ Detalle de los mismos:
         </tr>
     </thead>
     <tbody>
-        @foreach ($materias as $materias)
+        @foreach ($materias['anteproyecto'] as $materia)
         <tr>
-            <td style="text-align:center;">{{$materias->Nombre_estudiante1}}</td>
-            <td style="text-align:center;">{{$materias->Cedula_est1}}</td>
-            <td style="text-align:center;">{{$materias->Carrera}}</td>
-            <td style="text-align:center;">{{$materias->Nombre_anteproyecto}}</td>
+            <td style="text-align:center;">{{$materia->Nombre_estudiante1}}</td>
+            <td style="text-align:center;">{{$materia->Cedula_est1}}</td>
+            <td style="text-align:center;">{{$materia->Carrera}}</td>
+            <td style="text-align:center;">{{$materia->Nombre_anteproyecto}}</td>
         </tr>
         @endforeach
     </tbody>
@@ -61,14 +61,14 @@ Detalle de los mismos:
             </tr>
         </thead>
         <tbody>
-            @foreach ($tesis as $tesis)
+           
             <tr>
-                <td style="text-align:center;">{{$tesis->Nombre_estudiante1}}</td>
-                <td style="text-align:center;">{{$tesis->Cedula_est1}}</td>
-                <td style="text-align:center;">{{$tesis->Carrera}}</td>
-                <td style="text-align:center;">{{$tesis->Nombre_anteproyecto}}</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
             </tr>
-            @endforeach
+            
         </tbody>
     </table>
     </div>

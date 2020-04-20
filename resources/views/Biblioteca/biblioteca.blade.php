@@ -8,9 +8,12 @@
             </div>
         </div>
     <div class="card-body">
+        <form action="{{route('Nota_a_Biblioteca')}}" method="POST">
+            @csrf
+            {{method_field('POST')}}
         <td>
-            <a href="{{route('Nota_a_Biblioteca')}}" class="btn btn-success" style="float: right;">Crear Nota</a>
-        </td>   
+            <button type="submit" class="btn btn-primary float-left">Crear Nota</button>
+        </td> 
     <div class="table-responsive">
         <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
@@ -28,7 +31,9 @@
             @foreach($tesina as $tesina)
                 <tr>
                  <td>
-                 <input type="Checkbox" value="tesis[{{$tesina->id}}]" id="{{$tesina->id}}" name="tesis">
+                    <div class="form-check">
+                        <input type="checkbox" name="tesina[]" value="{{$tesina->id}}">
+                    </div>
                  </td>
                 <td>{{$tesina->Nombre_estudiante1}}</td>
                 <td>{{$tesina->Cedula_est1}}</td>

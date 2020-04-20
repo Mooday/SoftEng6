@@ -47,7 +47,7 @@ class AnteproyectoController extends Controller
     {
         //
         $request=request()->except('_token');
-        $registro=anteproyecto::create(['Nombre_anteproyecto'=>$request['Nombre_anteproyecto'],'Tipo_Anteproyecto'=>$request['Tipo_Anteproyecto'],'Nombre_estudiante1'=>$request['Nombre_estudiante1'], 'Cedula_est1'=>$request['Cedula_est1'],'Nombre_estudiante2'=>$request['Nombre_estudiante2'],'Cedula_est2'=>$request['Cedula_est2'],'Asesor'=>$request['Asesor'], 'Asesor_empresa'=>$request['Asesor_empresa'], 'Nombre_empresa'=>$request['Nombre_empresa'],'Carrera'=>$request['carrera']]);
+        $registro=anteproyecto::create(['id_user'=>Auth()->id(),'Nombre_anteproyecto'=>$request['Nombre_anteproyecto'],'Tipo_Anteproyecto'=>$request['Tipo_Anteproyecto'],'Nombre_estudiante1'=>$request['Nombre_estudiante1'], 'Cedula_est1'=>$request['Cedula_est1'],'Nombre_estudiante2'=>$request['Nombre_estudiante2'],'Cedula_est2'=>$request['Cedula_est2'],'Asesor'=>$request['Asesor'], 'Asesor_empresa'=>$request['Asesor_empresa'], 'Nombre_empresa'=>$request['Nombre_empresa'],'Carrera'=>$request['carrera']]);
         return redirect('/registroestudiante');
     }
 

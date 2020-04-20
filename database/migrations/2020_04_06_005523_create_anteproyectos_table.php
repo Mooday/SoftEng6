@@ -15,6 +15,7 @@ class CreateAnteproyectosTable extends Migration
     {
         Schema::create('anteproyectos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_user');
             $table->string('Nombre_anteproyecto')->required();
             $table->string('Tipo_Anteproyecto')->required();
             $table->string('Nombre_estudiante1')->required();
