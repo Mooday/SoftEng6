@@ -142,6 +142,8 @@
         @endcan
 
 
+
+
         <!--Solicitud de notas - estudiante-->
         @can('is-user')
         <li class="nav-item">
@@ -158,7 +160,11 @@
             </div>
         </li>
         @endcan
-          
+
+
+           <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
  <!--Solicitud 6 creditos-->
         <hr class="sidebar-divider my-0">
         @can('creditos')
@@ -214,16 +220,21 @@
             </div>
         </li>
     @endcan
+
 <!-- Fin seccion de Autoridades  -->
+
+ <!-- Divider -->
+ <hr class="sidebar-divider my-0">
+ 
 <!-- Seccion de actividades -->
 <hr class="sidebar-divider my-0">
     @can('manage-users')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_auto" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#info_actividades" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-window-restore"></i>
                 <span>Informe de Actividades</span>
             </a>
-            <div id="collapse_auto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="info_actividades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Informe de Actividades</h6>
                     <a class="collapse-item" href="{{route('actividad.index')}}">Educación continua</a>
