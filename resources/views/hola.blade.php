@@ -1,7 +1,7 @@
 @extends('layouts.template.template')
 @section('content')
 <!DOCTYPE html>
-<html lang="es">  
+<html lang="es">
 <h3>Registro de Anteproyecto</h3>
 
     <div class="card shadow mb-4">
@@ -13,7 +13,7 @@
         <div class="card-body">
             <form action="{{url('registroestudiante')}}" method="post">
                 @csrf
-                
+
 
                 <div class="form-group row">
                     <label for="Nombre_anteproyecto" class="col-md-2 col-form-label text-md-right">Nombre del Anteproyecto</label>
@@ -36,12 +36,12 @@
 
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="Nombre_estudiante1" class="col-md-2 col-form-label text-md-right">Nombre del primer estudiante </label>
 
                     <div class="col-md-3">
-                        <input id="Nombre_estudiante1" class="form-control" type="text" name="Nombre_estudiante1">
+                        <input id="Nombre_estudiante1" class="form-control" type="text" name="Nombre_estudiante1" value="{{$estudiante->nombre}} {{$estudiante->apellido}}" readonly>
 
                     </div>
                 </div>
@@ -50,33 +50,7 @@
                     <label for="Cedula_est1" class="col-md-2 col-form-label text-md-right">Cedula del Primer Estudiante</label>
 
                     <div class="col-md-3">
-                        <input id="Cedula_est1" class="form-control" type="text" name="Cedula_est1">
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                <h8>IMPORTANTE: Solo debe colocar el nombre de un segundo estudiante si su Anteproyecto sera realizado por dos personas, de lo contrario, omita esta parte. Si su Anteproyecto es del tipo Práctica Profesional, también omita esta parte.</h8>
-                </div>
-
-                <div class="form-group row">
-                    <label for="Nombre_estudiante2" class="col-md-2 col-form-label text-md-right">Nombre del Segundo Estudiante</label>
-
-                    <div class="col-md-3">
-                        <input id="Nombre_estudiante2" class="form-control" type="text" name="Nombre_estudiante2">
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <h9>IMPORTANTE: Solo debe colocar la cédula de un segundo estudiante si su Anteproyecto será realizado por dos personas, de lo contrario, omita esta parte. Si su Anteproyecto es del tipo Práctica Profesional, también omita esta parte.</h9>
-                </div>
-
-                <div class="form-group row">
-                    <label for="Cedula_est2" class="col-md-2 col-form-label text-md-right">Cedula del Segundo Estudiante</label>
-
-                    <div class="col-md-3">
-                        <input id="Cedula_est2" class="form-control" type="text" name="Cedula_est2">
+                        <input id="Cedula_est1" class="form-control" type="text" name="Cedula_est1" value="{{$estudiante->cedula}}" readonly>
 
                     </div>
                 </div>
@@ -102,10 +76,34 @@
                       @foreach($profesores as $profesor)
                       <option value="{{$profesor->nombre}} {{$profesor->apellido}}" name=Asesor>{{$profesor->nombre}} {{$profesor->apellido}}</option>
                       @endforeach
-                      </select>  
+                      </select>
 
                     </div>
                 </div>
+
+
+                <div class="form-group row">
+                <h8>IMPORTANTE: Solo debe colocar el nombre  y la cédula de un segundo estudiante si su Anteproyecto sera realizado por dos personas, de lo contrario, omita esta parte. Si su Anteproyecto es del tipo Práctica Profesional, también omita esta parte.</h8>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Nombre_estudiante2" class="col-md-2 col-form-label text-md-right">Nombre del Segundo Estudiante</label>
+
+                    <div class="col-md-3">
+                        <input id="Nombre_estudiante2" class="form-control" type="text" name="Nombre_estudiante2">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Cedula_est2" class="col-md-2 col-form-label text-md-right">Cedula del Segundo Estudiante</label>
+
+                    <div class="col-md-3">
+                        <input id="Cedula_est2" class="form-control" type="text" name="Cedula_est2">
+
+                    </div>
+                </div>
+
 
                 <div class="form-group row">
                       <h7>IMPORTANTE: El campo de Asesor de la Empresa solo debe ser llenado si su anteproyecto es de tipo Práctica Profesional</h7>
@@ -117,7 +115,7 @@
                     <div class="col-md-3">
                         <input id="Asesor_empresa" class="form-control" type="text" name="Asesor_empresa">
                     </div>
-                </div> 
+                </div>
 
                 <div class="form-group row">
                     <h6>IMPORTANTE: El campo de Nombre de la Empresa solo debe ser llenado si su anteproyecto es de tipo Práctica Profesional</h6>
@@ -129,7 +127,7 @@
                     <div class="col-md-3">
                         <input id="Nombre_empresa" class="form-control" type="text" name="Nombre_empresa">
                     </div>
-                </div> 
+                </div>
 
 
 
