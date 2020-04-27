@@ -26,7 +26,7 @@
     
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         
-            <thead class="thead-dark">
+            <thead>
               <tr>
                 <th scope="col">Actividad</th>
                 <th scope="col">Modalidad</th>
@@ -41,7 +41,7 @@
             @foreach ( $actividad as $actividades )
             <tbody>
                   <tr>
-                    <th scope="row">{{$actividades->actividad}}</th>
+                    <th>{{$actividades->actividad}}</th>
                     <td>{{$actividades->modalidad}}</td>
                     <td>{{$actividades->fecha_ejecucion}}</td>
                     <td>{{$actividades->total_hr}}</td>

@@ -11,8 +11,15 @@
     <form id="form-edit" action="{{route('updateactividad3',$actividad->id )}}"  method="post"> 
         @method('put')
     @csrf<h5>Actividad</h5>
-        <input class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" value="{{$actividad->actividad ?? ''}}"  required>  
-           <h5>Modalidad</h5>
+        <select class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" required>
+            <option value="{{$actividad->actividad ?? ''}}">{{$actividad->actividad ?? ''}}</option>
+            <option value="Servicio">Servicio</option>
+            <option value="Promoción Cultural">Promoción Cultural</option>, 
+            <option value="Acción Social">Acción Social</option>
+            <option value="Egresados">Egresados</option>
+            <option value="Otros">Otros</option>
+        </select>   
+        <h5>Modalidad</h5>
         <input class="form-control" type="text" name="fecha_ejecucion" id="fecha_ejecucion" placeholder="fecha de ejecucion" value="{{$actividad->fecha_ejecucion ?? ''}}"  required> 
            <h5>total de horas</h5>
         <input class="form-control" type="text" name="total_hr" id="total_hr" placeholder="total de horas" value="{{$actividad->total_hr ?? ''}}"  required> 

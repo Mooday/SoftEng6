@@ -12,7 +12,14 @@
     @csrf
     
     <br>
-        <input class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" required>  
+        <h5>Seleccione una actividad</h5>
+        <select class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" required>
+            <option value="Servicio">Servicio</option>
+            <option value="Promoción Cultural">Promoción Cultural</option>, 
+            <option value="Acción Social">Acción Social</option>
+            <option value="Egresados">Egresados</option>
+            <option value="Otros">Otros</option>
+        </select>
         <br>
         <input class="form-control" type="text" name="fecha_ejecucion" id="fecha_ejecucion" placeholder=" fecha dd/mm/aaaa" required> 
         <br>

@@ -26,7 +26,7 @@
     
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         
-            <thead class="thead-dark">
+            <thead>
               <tr>
                 <th scope="col">Empresa</th>
                 <th scope="col">Tipo de Vinculacion</th>
@@ -41,7 +41,7 @@
             @foreach ( $actividad as $actividades )
             <tbody>
                   <tr>
-                    <th scope="row">{{$actividades->Empresa}}</th>
+                    <th>{{$actividades->Empresa}}</th>
                     <td>{{$actividades->tipo_vinculacion}}</td>
                     <td>{{$actividades->actividad}}</td>
                     <td>{{$actividades->total_beneficiarios}}</td>
