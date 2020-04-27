@@ -8,6 +8,7 @@ use App\Profesor;
 use App\Carrera;
 use App\tipoanteproyecto;
 use App\Estado;
+use App\Estudiante;
 
 class AnteproyectoController extends Controller
 {
@@ -19,12 +20,13 @@ class AnteproyectoController extends Controller
     public function index()
     {
         //
+        $user = Auth()->user();
+        $estudiante = Estudiante::where ('id', $user->id)->first();
         $tipoantess=tipoanteproyecto::all();
         $carreras=Carrera::all();
         $profesores=Profesor::all();
         $estadoss=estado::all();
-        return view('hola', compact(['tipoantess','carreras','profesores','estadoss']));
-        //return $carreras;
+        return view('hola', compact(['tipoantess','carreras','profesores','estadoss', 'user', 'estudiante']));
     }
 
     /**

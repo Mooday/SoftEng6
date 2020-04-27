@@ -17,7 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
-   
+
 
     <!-- DataTables links -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
@@ -79,7 +79,20 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Registro</h6>
                     <a class="collapse-item" href="{{url('anteproyectosregistrados')}}">Anteproyecto Registrado</a>
-            
+
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                <i class="fas fa-calendar-day"></i>
+                <span>Estado de Solicitudes </span>
+            </a>
+            <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Fechas de Sustentación </h6>
+                    <a class="collapse-item" href="{{route('admin.fechassustentaciones.index')}}">Ver solicitudes</a>
+                    <a class="collapse-item" href="{{route('informefechassustentacion')}}">Informe fechas asignadas</a>
                 </div>
             </div>
         </li>
@@ -88,13 +101,28 @@
         @can('is-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_registro" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users-cog"></i>      
+                <i class="fas fa-fw fa-users-cog"></i>
                 <span>Gestión de Registro</span>
             </a>
             <div id="collapse_registro" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Registro</h6>
                     <a class="collapse-item" href="{{url('registroestudiante')}}">Registro de Anteproyecto</a>
+                </div>
+            </div>
+        </li>
+        @endcan
+        @can('is-user')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFor" aria-expanded="true" aria-controls="collapseTree">
+                <i class="fas fa-calendar-plus"></i>
+                <span>Solicitudes Fecha Sustentación</span>
+            </a>
+            <div id="collapseFor" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Solicitudes </h6>
+                    <a class="collapse-item" href="{{route('user.fechassustentaciones.index')}}">Fecha sustentación</a>
+                    <a class="collapse-item" href="{{route('informefechassustentacionestudiante')}}">Comprobar estado solicitudes</a>
                 </div>
             </div>
         </li>
@@ -196,7 +224,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Registro a Biblioteca</h6>
                     <a class="collapse-item" href="{{url('biblioteca')}}">Nota a Biblioteca</a>
-            
+
                 </div>
             </div>
         </li>
@@ -225,7 +253,7 @@
 
  <!-- Divider -->
  <hr class="sidebar-divider my-0">
- 
+
 <!-- Seccion de actividades -->
 <hr class="sidebar-divider my-0">
     @can('manage-users')

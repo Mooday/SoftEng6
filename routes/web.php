@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //});
 Route::get('imprimir-pdf/{id}/pdf','PdfController@imprimir')->name('imprimir');
 
-Route::resource('registroestudiante','AnteproyectoController'); 
+Route::resource('registroestudiante','AnteproyectoController');
 
 Route::resource('anteproyectosregistrados', 'EjemploController');
 
@@ -36,9 +36,21 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
     Route::resource('/users', 'UsersController', ['except'=>['create', 'store']]);
 
+    Route::resource('/fechassustentaciones', 'FechassustentacionesController', ['except'=>['create', 'store']]);
+
     Route::resource('/anuncio', 'AnunciosController');
 
 });
+
+
+Route::namespace('User')->prefix('user')->name('user.')->middleware('can:is-user')->group(function () {
+    Route::resource('/fechassustentaciones', 'FechassustentacionesController', ['except' => ['destroy']]);
+});
+
+Route::get('/mostrarfechassustentacionactivas', 'Admin\FechassustentacionesController@mostrarfechassustentacionactivas')->name('informefechassustentacion');
+Route::get('/mostrarfechassustentacionactivasestudiante', 'User\FechassustentacionesController@mostrarfechassustentacionactivas')->name('informefechassustentacionestudiante');
+
+
 
 Route::get('/testing', function(){
    return view('testing');
@@ -53,8 +65,8 @@ Route::resource('solicitud/asesor','NotaAsesorController');//Manejo de solicitud
 
 
 Route::get('solicitud/empresa', 'RegistroController@solicitud_empresa');//Estudiante ingresa a la solicitud de empresa
-route::get('listado_profesores', 'RegistroController@profesores');//Estudiante accede a la lista de profesores 
-Route::get('asesor_prof/{id}', 'RegistroController@mostrar_profesor_est');//Estudiante devuelve el profesor elegido a la solicitud 
+route::get('listado_profesores', 'RegistroController@profesores');//Estudiante accede a la lista de profesores
+Route::get('asesor_prof/{id}', 'RegistroController@mostrar_profesor_est');//Estudiante devuelve el profesor elegido a la solicitud
 Route::post('guardar/empresa', 'RegistroController@guardar_empresa');//Estudiante guarda solicitud de asesor de empresa
 
 Route::get('lista_notas','NotaAsesorController@lista_notas')->middleware('can:manage-users');//Coordinador accede a las solicitudes de profesor asesor
@@ -63,7 +75,7 @@ Route::get('asesor_emp/{id}', 'RegistroController@registro_empresa')->middleware
 Route::post('empresapdf', 'RegistroController@carta_empresa')->middleware('can:manage-users');//Coordinador actualiza y muestra PDF de solicitud de asesor de empresa
 Route::get('borrar_nota_empresa/{id}', 'RegistroController@borrar_nota_empresa')->middleware('can:manage-users');//Coordinador borra solicitud de asesor de empresa
 
-Route::get('lista_creditos','Solicitud6creditosController@index')->name('creditos/lista_creditos');//muestra la pagina de solicitud de 6 creditos   
+Route::get('lista_creditos','Solicitud6creditosController@index')->name('creditos/lista_creditos');//muestra la pagina de solicitud de 6 creditos
 Route::post('lista_creditos/guardar','Solicitud6creditosController@store')->name('store');//gurdar solicitud de 6 creditos
 Route::get('lista_creditos/editar/{id}','Solicitud6creditosController@edit')->name('editar');//muestra la vista editar solicitud 6 creditos
 Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->name('update');//actualizar solicitud 6 creditos
@@ -117,4 +129,4 @@ route::put('/updateactividad3/{id}', 'ActividadesController3@update')->name('upd
 route::get('/eliminaactividad3/{id}', 'ActividadesController3@delete')->name('eliminaactividad3');
 route::get('/eliminasiempre3/{id}', 'ActividadesController3@destroy')->name('eliminasiempre3');
 
-//fin de rutas de actividades de extencion 
+//fin de rutas de actividades de extencion

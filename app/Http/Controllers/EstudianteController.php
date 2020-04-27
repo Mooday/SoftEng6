@@ -79,6 +79,7 @@ class EstudianteController extends Controller
     public function update(Request $request, Estudiante $estudiante)
     {
 
+
         $id = Auth()->id();
         $data_profile = request()->except(['_token','_method']);
         Estudiante::where('id','=',$id)->update($data_profile);

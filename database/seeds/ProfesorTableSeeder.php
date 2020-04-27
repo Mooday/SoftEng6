@@ -16,9 +16,9 @@ class ProfesorTableSeeder extends Seeder
 
     public function run()
     {
-        Profesor::truncate();
+        //Profesor::truncate();
 
-        Profesor::create(['nombre'=>'Juan','apellido'=>'Saldaña','status'=>1]);
+        Profesor::firstOrCreate(['nombre'=>'Juan','apellido'=>'Saldaña'],['status'=>1]);
         Profesor::create(['nombre'=>'Cecilia','apellido'=>'de Beitia','status'=>1]);
         Profesor::create(['nombre'=>'Vladimir','apellido'=>'Villarreal','status'=>1]);
         Profesor::create(['nombre'=>'Lilia','apellido'=>'Muñoz','status'=>1]);

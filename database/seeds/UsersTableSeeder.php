@@ -13,14 +13,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        DB::table('role_user')->truncate();
+        //User::truncate();
+        //DB::table('role_user')->truncate();
 
         $adminRole=Role::where('name','admin')->first();
         $coordRole=Role::where('name','coordinador')->first();
         $userRole=Role::where('name','user')->first();
 
-        $admin=User::create([
+        $admin=User::firstOrCreate([
             'name'=>'Admin User',
             'email'=>'admin@example.com',
             'password'=>Hash::make('password')
