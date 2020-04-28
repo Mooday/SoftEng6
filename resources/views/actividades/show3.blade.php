@@ -8,6 +8,22 @@
   </div>
   
   <div class="card-body">
+      @if(isset($tiempo))
+    
+    @else
+    <form  id="form-emp" action="{{url('buscaactividad3')}}"  method="post"> 
+      @csrf
+        <select  class="form col-2 m-auto" type="text" name="sactividad" id="sactividad" required>
+            <option value="Servicio">Servicio</option>
+            <option value="Promoción Cultural">Promoción Cultural</option>, 
+            <option value="Acción Social">Acción Social</option>
+            <option value="Egresados">Egresados</option>
+            <option value="Otros">Otros</option>
+      </select>
+       <input class="d-none d-sm-inline-block btn btn-sm btn-success bg-gradient-warning shadow-sm "  type="submit" value="Buscar">
+     </form> 
+    
+     @endif
 
     <div class="table-responsive">
             <a href="{{route('actividad3.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-success bg-gradient-success shadow-sm">
@@ -48,12 +64,16 @@
                     <td>{{$actividades->observaciones}}</td>
                    <td>
                      @if(isset($tiempo))
-                        <a href="{{route('eliminasiempre3', $actividades ?? ''->id)}}"class="d-none d-sm-inline-block btn btn-sm btn-danger bg-gradient-danger shadow-sm"  >
+                        <a href="{{route('eliminasiempre3', $actividades ?? ''->id)}}"class="d-none d-sm-inline-block btn btn-sm btn-danger bg-gradient-danger shadow-sm" onclick="return confirm('Esta seguro que desea eliminar este elemento permanetemente?')" >
                          
-                          elimiar permanente
+                          elimiar
+                        </a>
+                        <a href="{{route('restaurar3', $actividades ?? ''->id)}}"class="d-none d-sm-inline-block btn btn-sm btn-info bg-gradient-info shadow-sm" onclick="return confirm('Esta seguro que desea Restaurar este elemento?')" >
+                         
+                          restaurar...
                         </a>
                      @else
-                        <a href="{{route('eliminaactividad3', $actividades ?? ''->id)}}" class="btn btn-danger btn-circle">
+                        <a href="{{route('eliminaactividad3', $actividades ?? ''->id)}}" class="btn btn-danger btn-circle" onclick="return confirm('Esta seguro que desea eliminar este elemento?')">
                           <i class="fas fa-trash"></i>
                          
                         </a>

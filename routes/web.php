@@ -106,10 +106,13 @@ route::get('/editaractividad/{id}', 'ActividadesController@edit')->name('editara
 route::put('/updateactividad/{id}', 'ActividadesController@update')->name('updateactividad');
 route::get('/eliminaactividad/{id}', 'ActividadesController@delete')->name('eliminaactividad');
 route::get('/eliminasiempre/{id}', 'ActividadesController@destroy')->name('eliminasiempre');
+
+route::get('/restaurar/{id}', 'ActividadesController@restaurar')->name('restaurar');
+Route::post('buscaactividad', 'ActividadesController@buscaactividad');
 //actividades 2
 Route::resource('actividad2','ActividadesController2');
 Route::get('/show2','ActividadesController2@index');
-Route::get('/resusita2','ActividadesController2@resusita')->name('resusita2');
+Route::get('/resusita2','ActividadesController2@resusita2')->name('resusita2');
 Route::get('/todo2','ActividadesController2@index')->name('todo2');
 
 Route::post('almacenaactividad2', 'ActividadesController2@store');
@@ -117,10 +120,13 @@ route::get('/editaractividad2/{id}', 'ActividadesController2@edit')->name('edita
 route::put('/updateactividad2/{id}', 'ActividadesController2@update')->name('updateactividad2');
 route::get('/eliminaactividad2/{id}', 'ActividadesController2@delete')->name('eliminaactividad2');
 route::get('/eliminasiempre2/{id}', 'ActividadesController2@destroy')->name('eliminasiempre2');
+
+route::get('/restaurar2/{id}', 'ActividadesController2@restaurar2')->name('restaurar2');
+Route::post('buscaactividad2', 'ActividadesController2@buscaactividad2');
 //actividades 3
 Route::resource('actividad3','ActividadesController3');
 Route::get('/show3','ActividadesController3@index');
-Route::get('/resusita3','ActividadesController3@resusita')->name('resusita3');
+Route::get('/resusita3','ActividadesController3@resusita3')->name('resusita3');
 Route::get('/todo3','ActividadesController3@index')->name('todo3');
 
 Route::post('almacenaactividad3', 'ActividadesController3@store');
@@ -129,4 +135,6 @@ route::put('/updateactividad3/{id}', 'ActividadesController3@update')->name('upd
 route::get('/eliminaactividad3/{id}', 'ActividadesController3@delete')->name('eliminaactividad3');
 route::get('/eliminasiempre3/{id}', 'ActividadesController3@destroy')->name('eliminasiempre3');
 
+route::get('/restaurar3/{id}', 'ActividadesController3@restaurar3')->name('restaurar3');
+Route::post('buscaactividad3', 'ActividadesController3@buscaactividad3');
 //fin de rutas de actividades de extencion
