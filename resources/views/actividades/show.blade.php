@@ -41,7 +41,7 @@
             <a href="{{route('resusita')}}" class="d-none d-sm-inline-block btn btn-sm btn-danger bg-gradient-danger shadow-sm">
               <i class="fas fa-trash-restore-alt"></i>
               </i>
-             elementos eliminados
+             Elementos eliminados
             </a>
     
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -71,30 +71,23 @@
                    <td>
                      @if(isset($tiempo))
                         <a href="{{route('eliminasiempre', $actividades ?? ''->id)}}"class="d-none d-sm-inline-block btn btn-sm btn-danger bg-gradient-danger shadow-sm" onclick="return confirm('Esta seguro que desea eliminar este elemento permanetemente?')" >
-                          elimiar
+                          Eliminar
                         </a>
                         <a href="{{route('restaurar', $actividades ?? ''->id)}}"class="d-none d-sm-inline-block btn btn-sm btn-info bg-gradient-info shadow-sm" onclick="return confirm('Esta seguro que desea Restaurar este elemento?')" >
                          
-                          restaurar...
+                          Restaurar...
                         </a>
                      @else
                         <a href="{{route('eliminaactividad', $actividades ?? ''->id)}}" class="btn btn-danger btn-circle" onclick="return confirm('Esta seguro que desea eliminar este elemento?')">
                           <i class="fas fa-trash"></i>
-                         
                         </a>
-
-
                         <a href="{{route('editaractividad', $actividades ?? ''->id)}}" class="btn btn-info btn-circle">
                           <i class="fas fa-edit"></i>
                         </a>
                      @endif
-                     
-                  
                    </td>
                   </tr>
               @endforeach
-              
-              
             </tbody>
           </table>
         </div>  

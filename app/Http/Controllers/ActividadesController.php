@@ -145,7 +145,6 @@ class ActividadesController extends Controller
      */
     public function destroy($id)
     {
-       
         $del=$this->objactividades->destroy($id);
         return redirect('/resusita');
     }
