@@ -63,7 +63,7 @@
   
 <div class="card shadow mb-4">
    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Lista de Estudiantes</h6>
+      <h6 class="m-0 font-weight-bold text-primary">solicitud realizada</h6>
   </div>
 <div class="card-body">
 <div class="table-responsive">
@@ -76,6 +76,7 @@
        <th>carrera</th>
        <th>telefono</th>
        <th>email</th>
+       <th>fecha</th>
        <th>estatus</th>
        @can('manage-users')
        <th>	Actions</th>
@@ -83,7 +84,7 @@
    </tr>
 </thead>
    @foreach ($ver as $item)
-   
+   @can('manage-users')
    <tbody>
                    <tr>
                    
@@ -92,6 +93,7 @@
                    <td>{{$item->carrera}}</td>
                    <td>{{$item->telefono}}</td>
                    <td>{{$item->email}}</td>
+                   <td>{{$item->created_at}}</td>
                    <td>{{$item->estatus}}</td>
                    @can('manage-users')
                    <td>
@@ -100,7 +102,28 @@
                      </td>
                    </tr>    
    </tbody>
-  
+   @endcan
+   @can('is-user')
+   @if ($item->cedula==$user->cedula)
+   <tbody>
+      <tr>
+      
+      <td>{{$item->nombre}}</td>   
+      <td>{{$item->cedula}}</td>
+      <td>{{$item->carrera}}</td>
+      <td>{{$item->telefono}}</td>
+      <td>{{$item->email}}</td>
+      <td>{{$item->created_at}}</td>
+      <td>{{$item->estatus}}</td>
+      @can('manage-users')
+      <td>
+        <a href="{{route('editar', $item->id)}}" class="btn btn-warning">editar</a>
+       @endcan
+        </td>
+      </tr>    
+</tbody>
+   @endif
+   @endcan
                @endforeach
                   </table>
  </div>

@@ -19,7 +19,7 @@ class Solicitud6creditosController extends Controller
     public function index()
     {
         
-            $ver =App\Solicitud6creditos::all();
+            $ver =App\Solicitud6creditos::all()->sortByDesc("created_at");;
  
 
         
