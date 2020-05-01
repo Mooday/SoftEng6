@@ -27,12 +27,28 @@ class ActividadesController2 extends Controller
         
     }
     
-    public function resusita()
+    public function resusita2()
     {
         $tiempo=1;
         $actividad=actividades2s::all()->where('estado', '=',0);
         return view('actividades.show2',compact('actividad','tiempo'));
         
+    }
+    public function buscaactividad2(Request $request)
+    {
+       
+        $actividad=actividades2s::all()->where('estado', '=',1)->Where('Empresa','=',$request->empresa);
+        return view('actividades.show2',compact('actividad'));
+        
+    }
+      public function  restaurar2($id)
+    {
+        $tiempo=1;
+        $actividad=$this->objactividades->find($id);
+        $this->objactividades->where(['id'=>$id])->update([
+            'estado'=>1,
+        ]);
+        return redirect('/resusita2');
     }
     /**
      * Show the form for creating a new resource.
