@@ -79,13 +79,13 @@ Route::get('lista_creditos','Solicitud6creditosController@index')->name('credito
 Route::post('lista_creditos/guardar','Solicitud6creditosController@store')->name('store');//gurdar solicitud de 6 creditos
 Route::get('lista_creditos/editar/{id}','Solicitud6creditosController@edit')->name('editar');//muestra la vista editar solicitud 6 creditos
 Route::put('lista_creditos/update/{id}','Solicitud6creditosController@update')->name('update');//actualizar solicitud 6 creditos
-
+//Rutas Autoridades
 Route::get('autoridades', 'AutoridadController@index');//Muestra la lista de autoridades
 Route::get('autoridades/registrar-autoridad', 'AutoridadController@create');//Formulario para crear autoridades
 Route::post('autoridades/agregar', 'AutoridadController@store');//agregar autoridades
 Route::get('autoridades/editar/{id}', 'AutoridadController@edit');//Editar autoridades
 Route::patch('autoridades/{id}', 'AutoridadController@update');//Actualizar autoridades
-
+//Rutas Profesores
 Route::get('profesores', 'ProfesorController@index');//Muestra la lista de profesores
 Route::get('profesores/registrar-profesor', 'ProfesorController@create');//Formulario para crear profesores
 Route::post('profesores/agregar', 'ProfesorController@store');//agregar profesores
@@ -128,5 +128,10 @@ route::get('/editaractividad3/{id}', 'ActividadesController3@edit')->name('edita
 route::put('/updateactividad3/{id}', 'ActividadesController3@update')->name('updateactividad3');
 route::get('/eliminaactividad3/{id}', 'ActividadesController3@delete')->name('eliminaactividad3');
 route::get('/eliminasiempre3/{id}', 'ActividadesController3@destroy')->name('eliminasiempre3');
-
 //fin de rutas de actividades de extencion
+//Rutas Notas a Jurados
+Route::get('notas/jurado_porasignar', 'Fechassustentaciones_profesorsController@create');//Muestra la lista de sustentaciones con fecha
+Route::get('notas/jurado_asignar/{id}', 'Fechassustentaciones_profesorsController@edit');//Asigna jurado a la sustentación
+Route::patch('notas/jurado/{id}', 'Fechassustentaciones_profesorsController@update');//Actualizar Jurados
+Route::get('notas/imprimirnota', 'Fechassustentaciones_profesorsController@index');//Listado de cartas por imprimir para jurado a la sustentación
+Route::get('imprimir-pdf/jurado/{id}', 'PdfController@jurado');//Impresión de nota para jurado

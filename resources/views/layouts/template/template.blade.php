@@ -163,7 +163,6 @@
                     <h6 class="collapse-header">Notas</h6>
                     <a class="collapse-item" href="{{url('lista_notas')}}">Asesores - Profesor</a>
                     <a class="collapse-item" href="{{url('lista_empresas')}}">Asesores - Empresa</a>
-                    <a class="collapse-item" href="{{url('notas/jurado-registrar')}}">Registrar Nota a Jurado</a>
                 </div>
             </div>
         </li>
@@ -312,6 +311,24 @@
     @endcan
 <!-- Fin seccion de profesores  -->
 
+<!--Sección de notas a jurado -->
+<hr class="sidebar-divider my-0">
+@can('manage-users')
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_jurado" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-file-alt"></i>
+        <span>Gestionar Nota Jurados</span>
+    </a>
+    <div id="collapse_jurado" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Notas a Jurados</h6>
+            <a class="collapse-item" href="{{url('notas/jurado_porasignar')}}">Registrar Nota a Jurado</a>
+            <a class="collapse-item" href="{{url('notas/imprimirnota')}}">Imprimir Nota a Jurado</a>
+        </div>
+    </div>
+</li>
+@endcan
+<!-- Fin seccion de Notas a Jurados  -->
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
