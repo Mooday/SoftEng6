@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     <h3>Crear Autoridad</h3>
 
     <div class="card shadow mb-4">

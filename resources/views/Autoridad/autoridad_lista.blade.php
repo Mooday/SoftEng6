@@ -30,7 +30,7 @@
                         @endif
                         <td>
                             @can('edit-users')
-                            <a href="" class="btn btn-primary btn-circle float-left">
+                            <a href="{{url('autoridades/editar', $autoridad->id)}}" class="btn btn-primary btn-circle float-left">
                                 <i class="far fa-edit"></i>
                             </a>
                             @endcan

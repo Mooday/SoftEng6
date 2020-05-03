@@ -2,7 +2,7 @@
 @section('content')
 <h3>Solicitud para asesor de empresa</h3>
 
-    <form id="form-emp-btn" action="{{url('guardar/empresa')}}" method="post">
+    <form action="{{url('guardar/empresa')}}" method="post">
     @csrf
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -95,6 +95,33 @@
         <div class="alert alert-warning">Por favor actualice sus datos del <a class="alert-link" href="{{url('profile/'.Auth()->user()->id.'/edit')}}">perfil</a> antes de realizar la solicitud.<a class="close" data-dismiss="alert" href="">x</a></div><br>
         </fieldset>
     @endif
+</div>
+<br>
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Solicitudes realizadas</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <tbody>
+        <tr>
+            <td>Asesor solicitado</td>
+            <td>Empresa</td>
+            <td>Fecha de solicitud</td>
+        </tr>
+
+     @foreach($solicitudes_empresa as $solicitud)
+        <tr>
+            <td>{{$solicitud->nombre_asesor.' '.$solicitud->apellido_asesor}}</td>
+            <td>{{$solicitud->nombre_empresa}}</td>
+            <td>{{$solicitud->created_at}}</td>
+        </tr>
+    @endforeach
+    </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 </form>

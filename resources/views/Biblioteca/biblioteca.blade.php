@@ -5,12 +5,16 @@
         <div class="card-header py-3">
             <div class="pull-left">
                 <h2 class="m-0 font-weight-bold text-primary">Listado de Anteproyectos</h2>
-                <td>
-                    <a href="{{route('Nota_a_Biblioteca')}}" class="btn btn-success" style="float: right;">Crear Nota</a>
-                </td>
             </div>
         </div>
     <div class="card-body">
+        <form action="{{route('Nota_a_Biblioteca')}}" method="POST">
+            @csrf
+            {{method_field('POST')}}
+        <td>
+            <button type="submit" name="pdf" class="btn btn-success float-right" disabled>Crear Nota</button>
+        </td> 
+
     <div class="table-responsive">
         <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
@@ -22,18 +26,24 @@
                 <th>Cedula 2</th>
                 <th>Carrera</th>
                 <th>Titulo</th>
+                <th>Tipo de Anteproyecto</th>
             </tr>
             </thead>
             <tbody>
             @foreach($tesina as $tesina)
                 <tr>
-                <td>{{$tesina->id}}</td>
-                <td>{{$tesina->Nombre_estudiante1}}</td>
-                <td>{{$tesina->Cedula_est1}}</td>
-                <td>{{$tesina->Nombre_estudiante2}}</td>
-                <td>{{$tesina->Cedula_est2}}</td>
-                <td>{{$tesina->Carrera}}</td>
-                <td>{{$tesina->Nombre_anteproyecto}}</td>
+                 <td>
+                    <div class="form-check">
+                        <input type="checkbox" name="tesina[]" value="{{$tesina->id}}" onclick="pdf.disabled = !this.checked">
+                    </div>
+                 </td>
+                    <td>{{$tesina->Nombre_estudiante1}}</td>
+                    <td>{{$tesina->Cedula_est1}}</td>
+                    <td>{{$tesina->Nombre_estudiante2}}</td>
+                    <td>{{$tesina->Cedula_est2}}</td>
+                    <td>{{$tesina->Carrera}}</td>
+                    <td>{{$tesina->Nombre_anteproyecto}}</td>
+                    <td>{{$tesina->Tipo_Anteproyecto}}</td>
                 </tr>
             @endforeach
             </tbody>

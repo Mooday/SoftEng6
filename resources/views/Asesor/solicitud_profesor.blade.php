@@ -1,7 +1,7 @@
 @extends('layouts.template.template')
 @section('content')
 <h3>Solicitud para profesor asesor</h3>
-<form id="form-prof-btn" action="{{url('solicitud/asesor')}}" method="post" enctype="multipart/form-data">
+<form action="{{url('solicitud/asesor')}}" method="post">
 @csrf
 <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -18,11 +18,11 @@
             <input type="text" name="id_profesor" value="{{$profesor->id}}" style="display:none">
             <input type="text" name="" value="{{$profesor->nombre.' '.$profesor->apellido}}" class="form-control" readonly="readonly">
             @else
-            <input id="bot" type="text" value="" onkeydown="event.preventDefault()" class="form-control" required>
+            <input type="text" value="" onkeydown="event.preventDefault()" class="form-control" required>
             @endif
             </td>
             <td>
-           <a class="btn btn-primary" href="{{url('profesores')}}">Ver Profesores</a>
+           <a class="btn btn-primary" href="{{url('listado_profesores')}}">Ver Profesores</a>
             </td>
         </tr>
     </tbody>
@@ -110,4 +110,34 @@
     @endif
 </div>
 </form>
+<br>
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Solicitudes realizadas</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <tbody>
+        <tr>
+            <td>Asesor solicitado</td>
+            <td>Fecha de solicitud</td>
+        </tr>
+
+     @foreach($solicitudes_profesor as $solicitud)
+        @foreach($profesores as $profe)
+            @if($profe->id == $solicitud->id_profesor)
+        <tr>
+            <td>{{$profe->nombre.' '.$profe->apellido}}</td>
+            <td>{{$solicitud->created_at}}</td>
+        </tr>
+            @endif
+        @endforeach
+    @endforeach
+    
+    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection

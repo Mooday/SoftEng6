@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
+    <title>Solicitud Asesor de Empresa</title>
     <link rel="stylesheet" href="css/pdf-style.css">
 </head>
 <img id="utp" src="uploads/avatars/logo_utp.jpg">
@@ -23,7 +23,7 @@
 <br>
 <div>{{$nota_emp_asesor->codigo}}</div><br>
 <br>
-<span>David, {{$dia}} de {{$mes}} de {{$año}}</span><br> 
+<span>David, {{$fecha}}</span><br>
 <br>
 <br>
 <Section>
@@ -42,7 +42,7 @@ E. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S. &nbsp;&nbsp;&nbsp;&n
 <p>
 Por este medio le comunico que el estudiante {{$estudiante->nombre.' '.$estudiante->apellido}} 
 con cédula {{$estudiante->cedula}} de la facultad de Ingeniería de Sistemas Computacionales, requiere 
-su colaboración para ejercer como asesor dentro de la empresa, para el anteproyecto <i>TITULO DE ANTEPROYECTO</i>, 
+su colaboración para ejercer como asesor dentro de la empresa, para el anteproyecto de su trabajo de graduación, 
 el cual será realizado en sus instalaciones, para optar por el título de {{$carrera->nombre}}.
 </p><br>
 <span>Agradeciendo su amable atención, queda de usted.</span><br>

@@ -26,13 +26,15 @@ class NotaAsesorController extends Controller
     public function index()
     {
         $estudiante = Estudiante::where('id', '=', Auth()->id())->first();
-        $carrera = Carrera::join('estudiantes', 'estudiantes.id_carrera', '=', 'carreras.id')->where('estudiantes.id', '=', Auth()->id())->first(['carreras.id', 'carreras.nombre']);
-
+        $carrera = Carrera::join('estudiantes', 'estudiantes.id_carrera', '=', 'carreras.id')
+        ->where('estudiantes.id', '=', Auth()->id())->first(['carreras.id', 'carreras.nombre']);
+        $solicitudes_profesor = NotaAsesor::where('id_estudiante', Auth()->id())->orderBy('id', 'DESC')->get();
+        $profesores = Profesor::all();
         if($carrera == NULL)
         {
-            return view('Asesor/solicitud_profesor', compact('estudiante'));
+            return view('Asesor/solicitud_profesor', compact('estudiante', 'solicitudes_profesor'));
         }
-        return view('Asesor/solicitud_profesor', compact(['estudiante', 'carrera']));
+        return view('Asesor/solicitud_profesor', compact(['estudiante', 'carrera', 'profesores', 'solicitudes_profesor']));
     }
 
     /**
@@ -56,13 +58,11 @@ class NotaAsesorController extends Controller
     public function store(Request $request)
     {
         $request = request()->except('_token');
-        $nota_prof_asesor = NotaAsesor::create(['id_estudiante' => $request['id_estudiante'], 'id_profesor' => $request['id_profesor']]);
-        $id_last = NotaAsesor::max('id');
-        $nota_prof_asesor = NotaAsesor::where('id', $id_last)->first();
+        $nota_prof_asesor = NotaAsesor::create(['id_estudiante' => $request['id_estudiante'], 
+        'id_profesor' => $request['id_profesor']]);
         $estudiante = Estudiante::where('id', '=', Auth()->id())->first();
         $carrera = Carrera::where('id', '=', $estudiante['id_carrera'])->first();
-        $profesor = Profesor::where('id', '=', $nota_prof_asesor['id_profesor'])->first();
-        return view('Asesor/solicitud_profesor', compact(['estudiante', 'carrera', 'profesor']));
+        return redirect('solicitud/asesor');
     }
 
     /**
@@ -122,7 +122,9 @@ class NotaAsesorController extends Controller
         $dia = $date->isoformat('D');
         $mes = $date->isoformat('MMMM');
         $año = $date->isoformat('Y'); 
-        $pdf_asesor = PDF::loadview('Asesor.pdf_profesor', compact(['nota_prof_asesor', 'estudiante', 'profesor', 'carrera', 'coordinador','dia', 'mes', 'año']));
+        $fecha = $dia.' de '.$mes.' de '.$año;
+        $pdf_asesor = PDF::loadview('Asesor.pdf_profesor', compact(['nota_prof_asesor', 'estudiante', 'profesor', 'carrera',
+         'coordinador','fecha']));
         return $pdf_asesor->stream('Nota_Asesor_Profesor.pdf');
     }
 

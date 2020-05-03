@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\solicitud6creditos;
 use Illuminate\Http\Request;
 use App;
+use App\Carrera;
+use Auth;
+use App\Estudiante;
+
 class Solicitud6creditosController extends Controller
 {
     /**
@@ -14,8 +18,17 @@ class Solicitud6creditosController extends Controller
      */
     public function index()
     {
-        $ver =App\Solicitud6creditos::all();
-        return view('creditos/lista_creditos',compact('ver'));
+        
+            $ver =App\Solicitud6creditos::all();
+ 
+
+        
+       
+        $user=Estudiante::where('id',Auth::user()->id)->first();
+        
+        $carrera = Carrera::join('estudiantes', 'estudiantes.id_carrera', '=', 'carreras.id')->where('estudiantes.id', '=', Auth()->id())->first(['carreras.id', 'carreras.nombre']);
+       
+        return view('creditos/lista_creditos',compact('ver', 'user', 'carrera'));
     }
 
     /**
@@ -42,9 +55,10 @@ class Solicitud6creditosController extends Controller
         $solicitud6creditosagregar->carrera=$request->carrera;
         $solicitud6creditosagregar->email=$request->email;
         $solicitud6creditosagregar->telefono=$request->telefono;
-        $solicitud6creditosagregar->estatus="faltan documentos";
+        $solicitud6creditosagregar->estatus="entregar creditos";
+        $solicitud6creditosagregar->id_user=Auth::user()->id;
         $solicitud6creditosagregar->save();
-        return back()->with('agregar', 'agregado corecatmente');
+        return back()->with('agregar', 'Agregado Correctamente!');
     }
 
     /**
@@ -87,7 +101,7 @@ class Solicitud6creditosController extends Controller
         $solicitud6creditosupdate->telefono=$request->telefono;
         $solicitud6creditosupdate->estatus=$request->estatus;
         $solicitud6creditosupdate->save();
-        return back()->with('update', 'actualizada correctamente');
+        return back()->with('update', 'Actualizada Correctamente!');
     }
 
     /**

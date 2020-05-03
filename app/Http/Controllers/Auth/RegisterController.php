@@ -79,7 +79,7 @@ class RegisterController extends Controller
         $user->roles()->attach($role);
 
         
-        //Estudiante::create(['id' => $user['id']],['nombre'=> $user['name']]);
+        //Estudiante::create(['id' => $user['id'], 'correo'=> $user['email']]);
         Estudiante::create(['id' => $user['id']]);
        
         return $user;

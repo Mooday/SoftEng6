@@ -29,7 +29,14 @@
             <td>Cédula:</td>
             <td><input type="text" placeholder="Cédula" name="cedula" value="{{$dato->cedula}}" class="form-control" required></td>
         </tr>
-
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" placeholder="correo" name="correo" value="{{$dato->correo}}" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>telefono:</td>
+            <td><input type="text" placeholder="telefono" name="telefono" value="{{$dato->telefono}}" class="form-control" required></td>
+        </tr>
         <tr>
             <td>Carrera:</td>
             <td colspan="2"><select name="id_carrera" class="form-control" required>

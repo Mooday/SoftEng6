@@ -26,7 +26,7 @@ class AutoridadController extends Controller
      */
     public function create()
     {
-        //
+        // Vista para crear una nueva autoridad
         return view('Autoridad/autoridad_crear');
     }
 
@@ -45,7 +45,8 @@ class AutoridadController extends Controller
             'status'=>$request['status'],
             ]);
 
-        return redirect('autoridades')->with('status','Nuevo Anuncio creado correctamente!.');
+            $request->session()->flash('success', $request['nombre'] . ' ' . $request['apellido'] . ' ha sido creado!');
+            return redirect('autoridades');
     }
 
     /**
@@ -66,10 +67,11 @@ class AutoridadController extends Controller
      * @param  \App\Autoridad  $autoridad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Autoridad $autoridad)
+    public function edit($id)
     {
-        //
-        return 'Formulario para editar autoridades';
+        // Vista para editar autoridades
+        $editautoridad=Autoridad::findOrFail($id);
+        return view('Autoridad/autoridad_edit', compact('editautoridad'));
     }
 
     /**
@@ -79,9 +81,18 @@ class AutoridadController extends Controller
      * @param  \App\Autoridad  $autoridad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Autoridad $autoridad)
+    public function update(Request $request, $id)
     {
-        //
+        //Actualización del registro
+        $actautoridad=Autoridad::findOrFail($id);
+        $actautoridad->nombre=$request->nombre;
+        $actautoridad->apellido=$request->apellido;
+        $actautoridad->cargo=$request->cargo;
+        $actautoridad->status=$request->status;
+        $actautoridad->save();
+
+        $request->session()->flash('success', $request['nombre'] . ' ' . $request['apellido'] . ' ha sido modificado');
+        return redirect('autoridades');
     }
 
     /**

@@ -15,9 +15,9 @@
         <th>Cédula</th>
         <th>Empresa</th>
         <th>Fecha de solicitud</th>
-        <th></th>
+        <th>Ver</th>
         @can('delete-users')
-        <th></th>
+        <th>Borrar</th>
         @endcan
     </tr>
     </thead>

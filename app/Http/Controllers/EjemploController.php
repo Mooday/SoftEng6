@@ -16,9 +16,8 @@ class EjemploController extends Controller
     public function index()
     {
         //
-        $estados['ejemplos2']=estado::all();
-        $datos['ejemplos']=anteproyecto::paginate(5);
-        return view('antere',$datos,$estados);
+        $dato['ejemplos']=anteproyecto::paginate(5);
+        return view('antere', $dato);
     }
 
     /**

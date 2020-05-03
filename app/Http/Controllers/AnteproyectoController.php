@@ -8,6 +8,7 @@ use App\Profesor;
 use App\Carrera;
 use App\tipoanteproyecto;
 use App\Estado;
+use App\Estudiante;
 
 class AnteproyectoController extends Controller
 {
@@ -19,12 +20,13 @@ class AnteproyectoController extends Controller
     public function index()
     {
         //
+        $user = Auth()->user();
+        $estudiante = Estudiante::where ('id', $user->id)->first();
         $tipoantess=tipoanteproyecto::all();
         $carreras=Carrera::all();
         $profesores=Profesor::all();
         $estadoss=estado::all();
-        return view('hola', compact(['tipoantess','carreras','profesores','estadoss']));
-        //return $carreras;
+        return view('hola', compact(['tipoantess','carreras','profesores','estadoss', 'user', 'estudiante']));
     }
 
     /**
@@ -47,7 +49,7 @@ class AnteproyectoController extends Controller
     {
         //
         $request=request()->except('_token');
-        $registro=anteproyecto::create(['Nombre_anteproyecto'=>$request['Nombre_anteproyecto'],'Tipo_Anteproyecto'=>$request['Tipo_Anteproyecto'],'Nombre_estudiante1'=>$request['Nombre_estudiante1'], 'Cedula_est1'=>$request['Cedula_est1'],'Nombre_estudiante2'=>$request['Nombre_estudiante2'],'Cedula_est2'=>$request['Cedula_est2'],'Asesor'=>$request['Asesor'], 'Asesor_empresa'=>$request['Asesor_empresa'], 'Nombre_empresa'=>$request['Nombre_empresa'],'Carrera'=>$request['carrera']]);
+        $registro=anteproyecto::create(['id_user'=>Auth()->id(),'Nombre_anteproyecto'=>$request['Nombre_anteproyecto'],'Tipo_Anteproyecto'=>$request['Tipo_Anteproyecto'],'Nombre_estudiante1'=>$request['Nombre_estudiante1'], 'Cedula_est1'=>$request['Cedula_est1'],'Nombre_estudiante2'=>$request['Nombre_estudiante2'],'Cedula_est2'=>$request['Cedula_est2'],'Asesor'=>$request['Asesor'], 'Asesor_empresa'=>$request['Asesor_empresa'], 'Nombre_empresa'=>$request['Nombre_empresa'],'Carrera'=>$request['carrera']]);
         return redirect('/registroestudiante');
     }
 
