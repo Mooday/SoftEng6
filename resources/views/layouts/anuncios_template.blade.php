@@ -38,7 +38,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
             <div class="sidebar-brand-icon">
                 <img width="50px" height="50px" class="img-profile rounded-circle" src="/uploads/avatars/logo_utp.jpg">
             </div>

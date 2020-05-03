@@ -64,9 +64,9 @@
 
             .logoutp {
             display: block;
-            width: 600%;
-            height: 400px;
-            background-image: url("{{asset('storage/logoutp.png') }}");
+            width: 100%;
+            height: 100%;
+            background-image: url("{{asset('/uploads/utp_logo.jpg') }}");
             background-repeat: no-repeat;
             background-position:center center;
         }
@@ -80,6 +80,7 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+                    <a href="{{ url('/publicidad') }}">Anuncios</a>
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
