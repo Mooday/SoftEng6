@@ -40,9 +40,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
 });
 
-Route::get('/testing', function(){
-   return view('testing');
-});
+Route::get('publicidad', 'PublicidadController@index');
 
 Route::get('/biblioteca','BibliotecaController@index');//Coordinador accede a anteproyectos finalizados
 Route::get('/Nota a Biblioteca','BibliotecaController@exportar')->name('Nota_a_Biblioteca');//Ruta para descargar el pdf

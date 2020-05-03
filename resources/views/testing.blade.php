@@ -1,208 +1,200 @@
-@extends('layouts.template.template')
+@extends('layouts.anuncios_template')
 
 @section('content')
     <style>
-    body {
-    font-family: Verdana, sans-serif;
-    margin: 0;
-    }
+        body {
+            margin: 0;
+        }
 
-    * {
-    box-sizing: border-box;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    .row > .column {
-    padding: 0 8px;
-    }
+        .row > .column {
+            padding: 0 8px;
+        }
 
-    .row:after {
-    content: "";
-    display: table;
-    clear: both;
-    }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
-    .column {
-    float: left;
-    width: 25%;
-    }
+        .column {
+            float: left;
+            width: 25%;
+        }
 
-    /* The Modal (background) */
-    .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: black;
-    }
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            opacity: 1;
+        }
 
-    /* Modal Content */
-    .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
-    }
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: transparent;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1200px;
+        }
 
-    /* The Close Button */
-    .close {
-    color: white;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-    }
+        /* The Close Button */
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
 
-    .close:hover,
-    .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
-    }
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-    .mySlides {
-    display: none;
-    }
+        .mySlides {
+            display: none;
+        }
 
-    .cursor {
-    cursor: pointer;
-    }
+        .cursor {
+            cursor: pointer;
+        }
 
-    /* Next & previous buttons */
-    .prev,
-    .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-    }
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
 
-    /* Position the "next button" to the right */
-    .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-    }
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
 
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    }
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-    /* Number text (1/3 etc) */
-    .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-    }
+        /* Number text (1/3 etc) */
+        .numbertext {
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+            color: darkgray;
+        }
 
-    img {
-    margin-bottom: -4px;
-    }
+        img {
+            margin-bottom: -4px;
+            opacity: 1.0;
+        }
 
-    .caption-container {
-    text-align: center;
-    background-color: black;
-    padding: 2px 16px;
-    color: white;
-    }
+        .caption-container {
+            text-align: center;
+            background-color: black;
+            padding: 2px 16px;
+            color: white;
+        }
 
-    .demo {
-    opacity: 0.6;
-    }
+        .demo {
+            opacity: 0.6;
+        }
 
-    .active,
-    .demo:hover {
-    opacity: 1;
-    }
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
 
-    img.hover-shadow {
-    transition: 0.3s;
-    }
+        img.hover-shadow {
+            transition: 0.3s;
+        }
 
-    .hover-shadow:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+        .hover-shadow:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
     </style>
 
-    <h2 style="text-align:center">Lightbox</h2>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <div class="sidebar-brand-icon">
+            <img width="100px" height="100px" class="img-profile rounded-circle" src="/uploads/avatars/fisc_logo.png">
+        </div>
+    </a>
+
+    <br>
+
+    <h2 style="text-align:center" class="text-xl font-weight-bold text-gray-800 text-uppercase mb-1">Anuncios FISC</h2><br><br>
         <div class="row">
-            <div class="column">
-                <img src="uploads/anuncios/1586533357.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-            </div>
-            <div class="column">
-                <img src="uploads/anuncios/1586533801.gif" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-            </div>
-            <div class="column">
-                <img src="uploads/anuncios/1586533357.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-            </div>
-            <div class="column">
-                <img src="uploads/anuncios/1586533357.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-            </div>
+            @foreach($anuncios as $anuncio)
+                <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                                {{--<div class="column">--}}
+                        <p id="caption" class="text-xm font-weight-bold text-gray-800 text-uppercase mb-1">{{$anuncio->type}} : {{$anuncio->title}}</p>
+                        <img src="uploads/anuncios/{{$anuncio->image}}" style="width:100%" onclick="openModal();currentSlide({{$loop->index + 1}})" class="hover-shadow cursor">
+                        <br>
+                        <p id="caption" class="text-xm font-weight-bold text-gray-800 text-uppercase mb-1">Informacion: {{$anuncio->description}}</p>
+                        <p id="caption" class="text-xm font-weight-bold text-gray-800 text-uppercase mb-1">Del {{$anuncio->start_date}} al {{$anuncio->end_date}}</p>
+                                {{--</div>--}}
+                    </div>
+                </div>
+                </div>
+            @endforeach
+
         </div>
 
     <div id="myModal" class="modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-
+            @foreach($anuncios as $anuncio)
             <div class="mySlides">
-                <div class="numbertext">1 / 4</div>
-                <img src="uploads/anuncios/1586533357.png" style="width:100%">
+                <div class="numbertext">{{$anuncio->title}}</div>
+                <img src="uploads/anuncios/{{$anuncio->image}}" style="width:100%">
+                <div class="caption-container">
+                    <br>
+                    <p id="caption">{{$anuncio->type}} : {{$anuncio->title}}</p>
+                    <p id="caption">Informacion: {{$anuncio->description}}</p>
+                    <p id="caption">Fecha de Inicio: {{$anuncio->start_date}}</p>
+                    <p id="caption">Fecha de Cierre: {{$anuncio->end_date}}</p>
+                </div>
             </div>
-
-            <div class="mySlides">
-                <div class="numbertext">2 / 4</div>
-                <img src="uploads/anuncios/1586533801.gif" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">3 / 4</div>
-                <img src="uploads/anuncios/1586533357.png" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">4 / 4</div>
-                <img src="uploads/anuncios/1586533357.png" style="width:100%">
-            </div>
+            @endforeach
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-            <div class="caption-container">
-                <p id="caption"></p>
-            </div>
 
 
-           {{-- <div class="column">
-                <img class="demo cursor" src="uploads/anuncios/1586533357.png" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="uploads/anuncios/1586533801.gif" style="width:100%" onclick="currentSlide(2)" alt="Snow">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="uploads/anuncios/1586533357.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="uploads/anuncios/1586533357.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-            </div>--}}
+
         </div>
     </div>
 
