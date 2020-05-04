@@ -27,7 +27,22 @@
                                     <tr>
                                         <th>ID</th><td>{{ $registro_evento->id }}</td>
                                     </tr>
-                                    <tr><th> Tipo Registro </th><td> {{ $registro_evento->Tipo_registro }} </td></tr><tr><th> Recursos Utilizados </th><td> {{ $registro_evento->Recursos_utilizados }} </td></tr><tr><th> Direccion De Necesidades </th><td> {{ $registro_evento->Direccion_de_necesidades }} </td></tr>
+                                    <tr><th> Tipo Registro </th><td> {{ $registro_evento->Tipo_registro }} </td></tr>
+                                    <tr><th> Recursos Utilizados </th><td> {{ $registro_evento->Recursos_utilizados }} </td></tr>
+                                    <tr><th> Direccion De Necesidades </th><td> {{ $registro_evento->Direccion_de_necesidades }} </td></tr>
+                                    <tr><th> Responsable </th><td> {{ $registro_evento->Responsable }} </td></tr>
+                                    <tr><th> Correo </th><td> {{ $registro_evento->Correo }} </td></tr>
+                                    <tr><th> Teléfono </th><td> {{ $registro_evento->Telefono }} </td></tr>
+                                    <tr><th> Fecha de Inicio </th><td> {{ $registro_evento->Fecha_de_Inicio }} </td></tr>
+                                    <tr><th> Fecha de Finalización </th><td> {{ $registro_evento->Fecha_de_fin }} </td></tr>
+                                    <tr><th> Nombre de la Actividad </th><td> {{ $registro_evento->Nombre_de_Actividad }} </td></tr>
+                                    <tr><th> Dirigido a </th><td> {{ $registro_evento->Dirigido_a }} </td></tr>
+                                    <tr><th> Costo de Servicios </th><td> {{ $registro_evento->Costo_de_Servicio }} </td></tr>
+                                    <tr><th> Tipo de Actividad </th><td> {{ $registro_evento->Tipo_de_Actividad }} </td></tr>
+                                    <tr><th> Tipo de evento </th><td> {{ $registro_evento->Tipo_de_Evento }} </td></tr>
+                                    <tr><th> Total de Horas </th><td> {{ $registro_evento->Total_de_horas }} </td></tr>
+                                    <tr><th> Numbero de Participantes </th><td> {{ $registro_evento->Numero_de_participantes }} </td></tr>
+                                    <tr><th> Descripción </th><td> {{ $registro_evento->Descripcion }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
