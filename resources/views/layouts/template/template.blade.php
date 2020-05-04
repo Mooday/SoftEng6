@@ -114,7 +114,11 @@
                 </div>
             </div>
         </li>
+
+            <hr class="sidebar-divider my-0">
+            
         @endcan
+
         @can('is-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFor" aria-expanded="true" aria-controls="collapseTree">

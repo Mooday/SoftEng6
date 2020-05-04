@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab65bcbd-9e4f-40ac-953b-e489f5853d2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,16 +31,16 @@
     <session id="-204516962">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -89,10 +88,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/template/template.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="391">
               <caret line="208" column="51" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
             </state>
           </provider>
@@ -101,7 +100,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
+            <state relative-caret-position="816">
               <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
               <folding>
                 <element signature="e#46#59#0#PHP" expanded="true" />
@@ -110,7 +109,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -542,18 +541,19 @@
       <workItem from="1588027625205" duration="622000" />
       <workItem from="1588268291917" duration="611000" />
       <workItem from="1588480038425" duration="11326000" />
-      <workItem from="1588552360723" duration="469000" />
+      <workItem from="1588552360723" duration="610000" />
+      <workItem from="1588560730772" duration="1619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119450000" />
+    <option name="totallyTimeSpent" value="121210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4981203" visible="true" weight="0.16151386" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4981203" visible="true" weight="0.16311301" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.1442953" />
       <window_info id="Favorites" order="2" sideWeight="0.5018797" side_tool="true" weight="0.1442953" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -852,10 +852,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/template/template.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="208" column="51" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
+        <state relative-caret-position="816">
+          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <folding>
+            <element signature="e#46#59#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -873,20 +876,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
-          <folding>
-            <element signature="e#46#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/template/template.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="208" column="51" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
         </state>
       </provider>
     </entry>
