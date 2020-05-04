@@ -16,9 +16,9 @@ class CarrerasTableSeeder extends Seeder
 
     public function run()
     {
-        Carrera::truncate();
+        //Carrera::truncate();
 
-        Carrera::create(['nombre'=>'Licenciatura en Ingeniería de Sistemas y Computación']);
+        Carrera::firstOrCreate(['nombre'=>'Licenciatura en Ingeniería de Sistemas y Computación']);
         Carrera::create(['nombre'=>'Licenciatura en Ingeniería de Sistemas de Información']);
         Carrera::create(['nombre'=>'Licenciatura en Desarrollo de Software']);
         Carrera::create(['nombre'=>'Licenciatura en Redes Informáticas']);

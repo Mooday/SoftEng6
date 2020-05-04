@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<div>FISC-CH-022-2018</div><br>
+
+@foreach ($codigos as $codigo)
+<span>{{$codigo->codigo}}</span>  
+@endforeach
+
+<br>
 <br>
 <span>David, {{$ldate = date('d')}} de {{$ldate = date('F')}} {{date('Y')}}</span><br> 
 <br>
@@ -23,17 +28,18 @@ Detalle de los mismos:
 </p>
 <br>
 <br>
-<br>
-
 <div style="text-align:center;">
-<Strong>MATERIAS DE MAESTRÍA CON OPCIÓN A TÉSIS </Strong><br><br> 
+<Strong>Anteproyectos para Ingreso Biblioteca</Strong><br><br> 
 <table border="2" align="center">
     <thead>
         <tr  bgcolor="GREEN">
-            <th style="text-align:center;">Nombre</th><br>
+            <th style="text-align:center;">Estudiante</th><br>
+            <th style="text-align:center;">Cedula</th><br>
+            <th style="text-align:center;">Estudiante</th><br>
             <th style="text-align:center;">Cedula</th><br>
             <th style="text-align:center;">Carrera</th><br>
-            <th style="text-align:center;">Titulo</th><br> 
+            <th style="text-align:center;">Titulo</th><br>
+            <th style="text-align:center;">Tipo de Anteproyecto</th><br> 
         </tr>
     </thead>
     <tbody>
@@ -41,46 +47,20 @@ Detalle de los mismos:
         <tr>
             <td style="text-align:center;">{{$materia->Nombre_estudiante1}}</td>
             <td style="text-align:center;">{{$materia->Cedula_est1}}</td>
+            <td style="text-align:center;">{{$materia->Nombre_estudiante2}}</td>
+            <td style="text-align:center;">{{$materia->Cedula_est2}}</td>
             <td style="text-align:center;">{{$materia->Carrera}}</td>
             <td style="text-align:center;">{{$materia->Nombre_anteproyecto}}</td>
+            <td style="text-align:center;">{{$materia->Tipo_Anteproyecto}}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 </div>
-
-<div style="text-align:center;">
-    <Strong>TÉSIS Y TEÓRICOS PRÁCTICOS  </Strong><br><br> 
-    <table border="2" align="center">
-        <thead>
-            <tr  bgcolor="GREEN">
-                <th style="text-align:center;">Nombre</th><br>
-                <th style="text-align:center;">Cedula</th><br>
-                <th style="text-align:center;">Carrera</th><br>
-                <th style="text-align:center;">Titulo</th><br> 
-            </tr>
-        </thead>
-        <tbody>
-           
-            <tr>
-                <td style="text-align:center;"></td>
-                <td style="text-align:center;"></td>
-                <td style="text-align:center;"></td>
-                <td style="text-align:center;"></td>
-            </tr>
-            
-        </tbody>
-    </table>
-    </div>
-
-<br>
-<br>
-<br>
-<span>Agradeciendo su amable atención, queda de usted.</span><br>
+<span>Agradeciendo su amable atención, queda de usted.</span>
 <br>
 <br>
 <span>Atentamente,</span><br>
-<br>
 <br>
 <section>
 <Strong>Dr. Juan J. Saldaña B. </Strong><br> 
@@ -88,12 +68,6 @@ Coordinador de la FISC<br>
 Centro Regional de Chiriquí<br>
 </section>
 <br>
-<br>
-<br>
-<br>
 <span>Adj.: Lo indicado</span>
-<br>
-<br>
-<br>
 </body>
 </html>

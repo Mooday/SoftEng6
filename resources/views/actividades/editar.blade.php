@@ -11,7 +11,18 @@
     <form id="form-edit" action="{{route('updateactividad',$actividad->id )}}"  method="post"> 
         @method('put')
     @csrf<h5>Actividad</h5>
-        <input class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" value="{{$actividad->actividad ?? ''}}"  required>  
+     <select  class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" required>
+            <option value="{{$actividad->actividad ?? ''}}">{{$actividad->actividad ?? ''}}</option>
+            <option value="Curso">Curso</option>
+            <option value="Seminario">Seminario</option>, 
+            <option value="Taller">Taller</option>
+            <option value="Seminario-Taller">Seminario-Taller</option>
+            <option value="Diplomados">Diplomados</option>
+            <option value="Conferencia">Conferencia</option>
+            <option value="Congresos">Congresos</option>
+            <option value="Simposio">Simposio</option>
+            <option value="Foro">Foro</option>
+        </select>
            <h5>Modalidad</h5>
         <input class="form-control" type="text" name="modalidad" id="modalidad" placeholder="modalidad" value="{{$actividad->modalidad ?? ''}}"  required>  
             <h5>Fecha de ejecucion</h5>

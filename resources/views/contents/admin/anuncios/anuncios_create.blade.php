@@ -78,7 +78,7 @@
                     <label for="start_date" class="col-md-2 col-form-label text-md-right">Fecha de Inicio</label>
 
                     <div class="col-md-3">
-                        <input id="start_date" type="text" class="form-control" placeholder="dd/mm/yyyy" name="start_date" required>
+                        <input id="start_date" type="date" class="form-control" placeholder="dd/mm/yyyy" name="start_date" required>
 
                         @error('start_date')
                         <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
                     <label for="end_date" class="col-md-2 col-form-label text-md-right">Fecha de Cierre</label>
 
                     <div class="col-md-3">
-                        <input id="end_date" type="text" class="form-control" placeholder="dd/mm/yyyy" name="end_date" required>
+                        <input id="end_date" type="date" class="form-control" placeholder="dd/mm/yyyy" name="end_date" required>
 
                         @error('end_date')
                         <span class="invalid-feedback" role="alert">
