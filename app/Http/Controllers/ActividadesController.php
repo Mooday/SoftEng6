@@ -34,6 +34,22 @@ class ActividadesController extends Controller
         return view('actividades.show',compact('actividad','tiempo'));
         
     }
+     public function buscaactividad(Request $request)
+    {
+       
+        $actividad=actividades::all()->where('estado', '=',1)->Where('actividad','=',$request->sactividad);
+        return view('actividades.show',compact('actividad'));
+        
+    }
+      public function  restaurar($id)
+    {
+        $tiempo=1;
+        $actividad=$this->objactividades->find($id);
+        $this->objactividades->where(['id'=>$id])->update([
+            'estado'=>1,
+        ]);
+        return redirect('/resusita');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -129,7 +145,6 @@ class ActividadesController extends Controller
      */
     public function destroy($id)
     {
-       
         $del=$this->objactividades->destroy($id);
         return redirect('/resusita');
     }

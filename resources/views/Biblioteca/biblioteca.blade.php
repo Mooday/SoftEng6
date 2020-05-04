@@ -12,8 +12,9 @@
             @csrf
             {{method_field('POST')}}
         <td>
-            <button type="submit" class="btn btn-primary float-left">Crear Nota</button>
+            <button type="submit" name="pdf" class="btn btn-success float-right" disabled>Crear Nota</button>
         </td> 
+
     <div class="table-responsive">
         <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
@@ -25,6 +26,7 @@
                 <th>Cedula 2</th>
                 <th>Carrera</th>
                 <th>Titulo</th>
+                <th>Tipo de Anteproyecto</th>
             </tr>
             </thead>
             <tbody>
@@ -32,15 +34,16 @@
                 <tr>
                  <td>
                     <div class="form-check">
-                        <input type="checkbox" name="tesina[]" value="{{$tesina->id}}">
+                        <input type="checkbox" name="tesina[]" value="{{$tesina->id}}" onclick="pdf.disabled = !this.checked">
                     </div>
                  </td>
-                <td>{{$tesina->Nombre_estudiante1}}</td>
-                <td>{{$tesina->Cedula_est1}}</td>
-                <td>{{$tesina->Nombre_estudiante2}}</td>
-                <td>{{$tesina->Cedula_est2}}</td>
-                <td>{{$tesina->Carrera}}</td>
-                <td>{{$tesina->Nombre_anteproyecto}}</td>
+                    <td>{{$tesina->Nombre_estudiante1}}</td>
+                    <td>{{$tesina->Cedula_est1}}</td>
+                    <td>{{$tesina->Nombre_estudiante2}}</td>
+                    <td>{{$tesina->Cedula_est2}}</td>
+                    <td>{{$tesina->Carrera}}</td>
+                    <td>{{$tesina->Nombre_anteproyecto}}</td>
+                    <td>{{$tesina->Tipo_Anteproyecto}}</td>
                 </tr>
             @endforeach
             </tbody>

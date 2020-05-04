@@ -74,6 +74,9 @@ class FechassustentacionesController extends Controller
         //
         $user = Auth::user();
         $estudiante = Estudiante::where ('cedula', $request->cedu)->first();
+
+       // dd($estudiante->id, $iduser);
+
         $carrera = Carrera::where ('id', $estudiante->id_carrera)->first();
         if ($estudiante) {
             $fechasustentacion = Fechassustentaciones::create([

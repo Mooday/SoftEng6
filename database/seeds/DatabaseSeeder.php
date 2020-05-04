@@ -17,11 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CarrerasTableSeeder::class);
 
         $this->call(ProfesorTableSeeder::class);
-        $this->call(AutoridadsTableSeeder::class);
-
-        $this->call([ProfesorTableSeeder::class]);
-        $this->call(AutoridadsTableSeeder::class);
-        
+        $this->call(AutoridadsTableSeeder::class);        
 
     }
 }

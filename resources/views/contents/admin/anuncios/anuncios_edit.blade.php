@@ -4,24 +4,24 @@
 
 
 
-    <h3>Crear Anuncio</h3>
+    <h3>Editar Anuncio</h3>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Crear Anuncio</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Editar Anuncio</h6>
         </div>
         <br>
 
         <div class="card-body">
-            <form action="{{route('admin.anuncio.store')}}" enctype="multipart/form-data" method="POST">
+            <form action="{{route('admin.anuncio.update', $anuncios)}}" enctype="multipart/form-data" method="POST">
                 @csrf
-                {{method_field('POST')}}
+                {{method_field('PUT')}}
 
                 <div class="form-group row">
                     <label for="title" class="col-md-2 col-form-label text-md-right">Titulo</label>
 
                     <div class="col-md-3">
-                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="" required autofocus>
+                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $anuncios->title }}" required autofocus>
 
                         @error('title')
                         <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                     <label for="description" class="col-md-2 col-form-label text-md-right">Descripcion</label>
 
                     <div class="col-md-3">
-                        <textarea id="description" type="text" rows="3" class="form-control @error('description') is-invalid @enderror" name="description" value="" required autofocus></textarea>
+                        <textarea id="description" type="text" rows="3" class="form-control @error('description') is-invalid @enderror" name="description" required autofocus>{{ $anuncios->description }}</textarea>
 
                         @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                     <label for="start_date" class="col-md-2 col-form-label text-md-right">Fecha de Inicio</label>
 
                     <div class="col-md-3">
-                        <input id="start_date" type="date" class="form-control" placeholder="dd/mm/yyyy" name="start_date" required>
+                        <input id="start_date" type="date" class="form-control" value="{{ $anuncios->start_date }}" placeholder="dd/mm/yyyy" name="start_date" required>
 
                         @error('start_date')
                         <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
                     <label for="end_date" class="col-md-2 col-form-label text-md-right">Fecha de Cierre</label>
 
                     <div class="col-md-3">
-                        <input id="end_date" type="date" class="form-control" placeholder="dd/mm/yyyy" name="end_date" required>
+                        <input id="end_date" type="date" class="form-control" value="{{ $anuncios->end_date }}" placeholder="dd/mm/yyyy" name="end_date" required>
 
                         @error('end_date')
                         <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
 
 
                 <button type="submit" class="btn btn-success bg-gradient-success float-left">
-                    Crear Anuncio
+                    Editar Anuncio
                 </button>
             </form>
         </div>

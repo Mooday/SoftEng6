@@ -12,7 +12,19 @@
     @csrf
     
     <br>
-        <input class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" required>  
+         
+    <h5>Seleccione una actividad</h5>
+        <select  class="form-control" type="text" name="actividad" id="actividad" placeholder="actividad" required>
+            <option value="Curso">Curso</option>
+            <option value="Seminario">Seminario</option>, 
+            <option value="Taller">Taller</option>
+            <option value="Seminario-Taller">Seminario-Taller</option>
+            <option value="Diplomados">Diplomados</option>
+            <option value="Conferencia">Conferencia</option>
+            <option value="Congresos">Congresos</option>
+            <option value="Simposio">Simposio</option>
+            <option value="Foro">Foro</option>
+        </select>
         <br>
         <input class="form-control" type="text" name="modalidad" id="modalidad" placeholder="modalidad" required>  
         <br>

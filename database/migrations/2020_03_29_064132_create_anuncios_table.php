@@ -18,8 +18,8 @@ class CreateAnunciosTable extends Migration
             $table->string('title');
             $table->string('type');
             $table->string('description');
-            $table->timestamp('start_date')->nullable();
-            $table->timestamp('end_date')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->string('image');
             $table->timestamps();
         });

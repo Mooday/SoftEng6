@@ -8,7 +8,7 @@ class Fechassustentaciones extends Model
 {
     //
     protected $fillable = [
-        'email', 'identification', 'name', 'projectname', 'faculty', 'estate', 'active', 'sustentationdate'
+        'iduser', 'id_anteproyecto', 'id_carrera', 'estate', 'active', 'sustentationdate'
     ];
 
 }
