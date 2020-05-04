@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nota de Tesis y Teorico Practico</title>
+    <title>Practica Profesional</title>
     <link rel="stylesheet" href="css/pdf-style.css">
 </head>
 <img id="utp" src="uploads/avatars/logo_utp.jpg">
@@ -23,13 +23,13 @@
 <br>
 <br>
 <br>
-<span>David, {{$fecha}}</span><br>
+<span>David, {{$fechas}}</span><br>
 <br>
 <br>
 <Section>
 Ingeniero/a <br>
-<strong>{{$vicedeca->nombre.' '.$vicedeca->apellido}}</strong><br>
-<strong>{{$vicedeca->cargo}}</strong><br>
+<strong>{{$vicedecan->nombre.' '.$vicedecan->apellido}}</strong><br>
+<strong>{{$vicedecan->cargo}}</strong><br>
 Facultad de Ingeniería de Sistemas Computacionales<br>
 Universidad Tecnológica de Panamá<br>
 E. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D.<br>
@@ -37,16 +37,16 @@ E. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S. &nbsp;&nbsp;&nbsp;&n
 <br>
 <br>
 <br>
-<span>Respetado/a ingeniero/a {{$vicedeca->apellido}}:</span><br>
+<span>Respetado/a ingeniero/a {{$vicedecan->apellido}}:</span><br>
 <br>
 <br>
 <span>Reciba ante todo un cordial saludo, deseándole éxitos en sus funciones.</span><br>
 <p>
 Estamos enviando el anteproyecto de Trabajo de Graduación 
-{{$antes->Nombre_anteproyecto}},
-de la/os jóven/es {{$antes->Nombre_estudiante1.' '.$antes->Cedula_est1}} {{' y '.$antes->Nombre_estudiante2.' '.$antes->Cedula_est2}} estudiante/s de la 
-carrera de {{$antes->Carrera}}, FISC-Chiriquí; 
-asesorado por {{$antes->Asesor}}.
+{{$antess->Nombre_anteproyecto}},
+de el/la jóven {{$antess->Nombre_estudiante1.' '.$antess->Cedula_est1}} estudiante de la 
+carrera de {{$antess->Carrera}}, FISC-Chiriquí; 
+asesorado por {{$antess->Asesor}}, la Práctica Profesional sera realizada en la empresa {{$antess->Nombre_empresa}} y el asesor/a de la empresa es {{$antess->Asesor_empresa}}.
 </p><br>
 <span>Agradeciendo su amable atención, queda de usted.</span><br>
 <br>

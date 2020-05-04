@@ -21,7 +21,7 @@ class CreateEstudiantesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre')->nullable();
             $table->string('apellido')->nullable();
-            $table->string('cedula')->unique()->nullable();
+            $table->string('cedula')->nullable();
             $table->string('id_carrera')->nullable();
             $table->string('id_anteproyecto')->nullable();
             $table->string('telefono')->nullable();

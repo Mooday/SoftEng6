@@ -53,8 +53,18 @@
                                 </button>
                             </form>
             
-            <a class="btn btn-info" style="width: 100%;" href="{{url('imprimir-pdf/'.$ejemplo->id.'/pdf')}}"> Generar PDF</a></td>
+            @if($ejemplo->Tipo_Anteproyecto=='Tesis' or $ejemplo->Tipo_Anteproyecto=='Teorico Practico')
+                @if($ejemplo->Estado=='En Revision')
+                    <a class="btn btn-info" style="width: 100%;" href="{{url('imprimir-pdf/'.$ejemplo->id.'/pdf')}}"> Nota Tesis</a>
+                @endif
+            @endif
             
+            @if($ejemplo->Tipo_Anteproyecto=='Practica Profesional')
+                @if($ejemplo->Estado=='En Revision')
+                    <a class="btn btn-info" style="width: 100%;" href="{{url('imprimir-pdff/'.$ejemplo->id.'/pdf')}}"> Nota PP</a></td>
+                @endif
+            @endif
+
              </tr>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

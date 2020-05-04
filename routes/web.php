@@ -129,4 +129,7 @@ route::put('/updateactividad3/{id}', 'ActividadesController3@update')->name('upd
 route::get('/eliminaactividad3/{id}', 'ActividadesController3@delete')->name('eliminaactividad3');
 route::get('/eliminasiempre3/{id}', 'ActividadesController3@destroy')->name('eliminasiempre3');
 
+//ruta de Nota Practica Profesional
+Route::get('imprimir-pdff/{id}/pdf','NotaProfesionalController@imprimir')->name('imprimir');
+
 //fin de rutas de actividades de extencion
