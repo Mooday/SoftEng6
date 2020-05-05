@@ -8,6 +8,7 @@ use App\Fechassustentaciones;
 use App\Estudiante;
 use App\Carrera;
 use App\Anteproyecto;
+use App\Fechassustentaciones_profesors;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -91,6 +92,7 @@ class FechassustentacionesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Fechassustentaciones  $fechassustentaciones
+     * @param  \App\Fechassustentaciones_profesors $fechassustentacion_profesors
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -101,6 +103,10 @@ class FechassustentacionesController extends Controller
                 'estate' => $request->status,
                 'sustentationdate' => $request->presentacion
               ]);
+            
+            DB::table('fechassustentaciones_profesors')->insert([
+                'id_fechassustentaciones' =>$id
+            ]);
         }
         else{
             DB::table('fechassustentaciones')->where('id', $id)->update([

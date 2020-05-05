@@ -20,6 +20,7 @@
                 <p>
                 <label for="estado"class="control-label">Selecione el Estado</label><br/>
                 <select name="Estado" class="form-control"id="estado"><br/>
+                <br/><option value="<?php echo e($dato->Estado); ?>" name=Estado><?php echo e($dato->Estado); ?></option><br/>
                     <br/><option value="En Revision" name=Estado>En Revision</option><br/>
                     <br/><option value="Enviado" name=Estado>Enviado</option><br/>
                     <br/><option value="Aprobado" name=Estado>Aprobado</option><br/>
@@ -30,7 +31,7 @@
                 <p>
                     
                 <label for="Observaciones"class="control-label">Observaciones</label>
-                <textarea type="text" rows="3" class="form-control " name="comentario" id="comentario" value="<?php echo e($dato->comentario); ?>" class="form-control"></textarea>
+                <textarea type="text" rows="3" class="form-control " required name="comentario" id="comentario" value="<?php echo e($dato->comentario); ?>" class="form-control"><?php echo e($dato->comentario); ?></textarea>
                 </div>
                 <br/><input type="submit" class="btn btn-success" value="Guardar Cambios">
                 

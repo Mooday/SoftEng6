@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\NotaBiblioteca;
 use App\anteproyecto;
+use App\NotaAsesor;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,20 +19,25 @@ class BibliotecaController extends Controller
      */
     public function index()
     {
-        $tesina=DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Nombre_estudiante2','Cedula_est2','Carrera','Nombre_anteproyecto')->where('Estado','=','Finalizado')->get();
+        $tesina=DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Nombre_estudiante2','Cedula_est2','Carrera','Nombre_anteproyecto','Tipo_Anteproyecto')->where('Estado','=','Finalizado')->get();
         return view('Biblioteca/biblioteca', compact('tesina'));
     }
 
 
     public function exportar(Request $request){
-        
-        //return $request;
-        $materias['anteproyecto']=anteproyecto::whereIn('id',$request->input('tesina'))->get();
-        //dd($materias);
-        //$materias= DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Carrera','Nombre_anteproyecto')->where('Tipo_Anteproyecto','=','MATERIAS DE MAESTRÍA CON OPCIÓN A TÉSIS')->where('Estado','=','Finalizado')->get();
-       // $tesis= DB::table('anteproyectos')->select('id','Nombre_estudiante1','Cedula_est1','Carrera','Nombre_anteproyecto')->where('Tipo_Anteproyecto','=','TÉSIS Y TEÓRICOS PRÁCTICOS')->where('Estado','=','Finalizado')->get();        
-        $pdf= PDF::loadView('Biblioteca.pdf_biblioteca',compact('materias'));   
+        $codigos=DB::table('nota_asesors')->select('codigo')->get();
+        $materias['anteproyecto']=anteproyecto::whereIn('id',$request->input('tesina'))->get();   
+        $pdf= PDF::loadView('Biblioteca.pdf_biblioteca',compact('materias','codigos')); 
+        $this->objNotaBiblioteca->whereIn('id',$request->input('tesina'))->update([
+            'Estado'=>'Entregado'
+        ]); 
         return $pdf->download('Nota-Biblioteca.pdf');
+    } 
+
+    private $objNotaBiblioteca;
+    public function __construct()
+    {
+        $this->objNotaBiblioteca = new NotaBiblioteca();
     }
 
     /**
@@ -84,9 +90,9 @@ class BibliotecaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-       
+        
     }
 
     /**

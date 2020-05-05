@@ -195,15 +195,7 @@
                                         <i class="far fa-edit"></i>
                                     </a>
                                 @endcan
-                                @can('delete-users')
-                                    <form action="{{route('admin.anuncio.destroy', $anuncio)}}" method="POST" class="float-left">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-circle">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                @endcan
+
                             </td>
                         </tr>
 

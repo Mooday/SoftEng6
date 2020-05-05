@@ -6,6 +6,8 @@ use App\Anuncio;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 /*use Intervention\Image\Facades\Image;*/
+
+use Illuminate\Support\Facades\Gate;
 use Intervention\Image\ImageManagerStatic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -62,8 +64,8 @@ class AnunciosController extends Controller
         ]);
 
 
-        $start_date=Carbon::createFromFormat('d/m/Y', $request['start_date']);
-        $end_date=Carbon::createFromFormat('d/m/Y', $request['end_date']);
+        /*$start_date=Carbon::createFromFormat('d/m/Y', $request['start_date']);
+        $end_date=Carbon::createFromFormat('d/m/Y', $request['end_date']);*/
 
 
         if($request->hasFile('image')) {
@@ -80,8 +82,8 @@ class AnunciosController extends Controller
             'title'=>$request['title'],
             'type'=>$request['type'],
             'description'=>$request['description'],
-            'start_date'=>$start_date,
-            'end_date'=>$end_date,
+            'start_date'=>$request['start_date'],
+            'end_date'=>$request['end_date'],
             'image'=>$filename,
         ]);
 
@@ -97,7 +99,7 @@ class AnunciosController extends Controller
      */
     public function show(Anuncio $anuncio)
     {
-        //
+
     }
 
     /**
@@ -108,7 +110,13 @@ class AnunciosController extends Controller
      */
     public function edit(Anuncio $anuncio)
     {
-        //
+        if(Gate::denies('manage-users')){
+            return redirect(route('admin.anuncio.index'));
+        }
+
+        return view('contents.admin.anuncios.anuncios_edit')->with([
+            'anuncios'=>$anuncio,
+        ]);
     }
 
     /**
@@ -120,7 +128,46 @@ class AnunciosController extends Controller
      */
     public function update(Request $request, Anuncio $anuncio)
     {
-        //
+
+        if($request->hasFile('image')) {
+
+            $image = $request->file('image');
+
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+
+            $file = public_path('uploads/anuncios/' . $anuncio->image);
+
+            if(File::exists($file)) {
+                unlink($file);
+            }
+
+            Image::make($image)->save(public_path('uploads/anuncios/' . $filename));
+
+            $anuncio->image = $filename;
+
+        }
+
+
+        if(isset($request->title)){
+            $anuncio->title = $request->title;
+        }
+        if(isset($request->type)) {
+            $anuncio->type = $request->type;
+        }
+        if(isset($request->description)) {
+            $anuncio->description = $request->description;
+        }
+        if(isset($request->start_date)){
+            $anuncio->start_date = $request->start_date;
+        }
+        if(isset($request->end_date)){
+            $anuncio->end_date = $request->end_date;
+        }
+
+        $anuncio->save();
+
+        return redirect('/admin/anuncio')->with('status','El anuncio fue actualizado correctamente!.');
+
     }
 
     /**

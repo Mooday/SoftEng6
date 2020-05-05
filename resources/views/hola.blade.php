@@ -19,7 +19,7 @@
                     <label for="Nombre_anteproyecto" class="col-md-2 col-form-label text-md-right">Nombre del Anteproyecto</label>
 
                     <div class="col-md-3">
-                        <input id="Nombre_anteproyecto" class="form-control" type="text" name="Nombre_anteproyecto">
+                        <input id="Nombre_anteproyecto" class="form-control" type="text" name="Nombre_anteproyecto" required> 
 
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <label for="Tipo_Anteproyecto" class="col-md-2 col-form-label text-md-right">Tipo de Anteproyecto</label>
 
                     <div class="col-md-3">
-                        <select name="Tipo_Anteproyecto" class="form-control" id="Tipo_Anteproyecto" type="" >
+                        <select name="Tipo_Anteproyecto" class="form-control" id="Tipo_Anteproyecto" type="" required>
                         <option value="Tesis" name="Tipo_Anteproyecto">Tesis</option>
                         <option value="Teorico Practico" name="Tipo_Anteproyecto">Teorico Practico</option>
                         <option value="Practica Profesional" name="Tipo_Anteproyecto">Practica Profesional</option>
@@ -59,7 +59,7 @@
                     <label for="carrera" class="col-md-2 col-form-label text-md-right">Carrera</label>
 
                     <div class="col-md-6">
-                        <select id="Carrera" class="form-control" type="text" name="carrera">
+                        <select id="Carrera" class="form-control" type="text" name="carrera" required>
                         @foreach($carreras as $carrera)
                         <option value="{{$carrera->nombre}}" name="Carrera">{{$carrera->nombre}}</option>
                         @endforeach
