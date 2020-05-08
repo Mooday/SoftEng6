@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Boletines</title>
-    <style type="text/css">
-    	body {
-			margin: 2em;
-			color: #000;
-			background-color: #fff;
-    	}
-    	.container{
-
-    	}
-    	.encabezadoboletin {
-				text-align: center;
-				font-family: arial;
-
-			}
-
-			.tablainformacion {
-				font-size: 22px;
-				width: 100%;
-                border: 1px;
-                float: center;
-            }
-
-
-    </style>
-  </head>
-
-  <body>
-    <div class="contenido">
-
-	        	<div class="encabezadoboletin">
-	        		<h3>FECHAS DE SUSTENTACIÓN ACTIVAS</br>
-
-	            </div>
-
-
-
-                <table class="tablainformacion">
+         <table>
                     <thead>
                     <tr>
                         <th align="center">Identificación</th>
@@ -103,8 +62,4 @@
                     </tbody>
 
                 </table>
-            </div>
-    </div> <!-- /container -->
-  </body>
-</html>
 

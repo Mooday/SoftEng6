@@ -9,6 +9,8 @@ use App\Estudiante;
 use App\Carrera;
 use App\Anteproyecto;
 use App\Fechassustentaciones_profesors;
+use App\Exports\FechassustentacionExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -103,7 +105,7 @@ class FechassustentacionesController extends Controller
                 'estate' => $request->status,
                 'sustentationdate' => $request->presentacion
               ]);
-            
+
             DB::table('fechassustentaciones_profesors')->insert([
                 'id_fechassustentaciones' =>$id
             ]);
@@ -145,7 +147,10 @@ class FechassustentacionesController extends Controller
             return view('contents.admin.mensajes', compact('titulo'));
         }
         else {
-        return view('contents.admin.fechassustentacion.informefechassustentacionactivas', compact('fechassustentacion', 'carreras', 'proyectos'));
+            return Excel::download(new FechassustentacionExport, 'fechassustentaciones.xlsx');
+            //return view('contents.admin.fechassustentacion.informefechassustentacionactivas', compact('fechassustentacion', 'carreras', 'proyectos'));
         }
     }
+
+
 }
